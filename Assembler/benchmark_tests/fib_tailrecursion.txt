@@ -1,0 +1,11 @@
+LDI GP1 0x5
+LDI GP4 0x1
+LDI GP5 0x1
+fib: JLT GP1 return
+     SUBI GP1 1
+     MOV GP3 GP5
+     ADD GP5 GP4
+     MOV GP4 GP3
+     JAL fib
+return: MOV GP2 GP5
+	    STP

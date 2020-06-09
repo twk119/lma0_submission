@@ -1,0 +1,163 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2019  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+*/
+(header "symbol" (version "1.2"))
+(symbol
+	(rect 16 16 264 240)
+	(text "MAC_loop" (rect 5 0 65 19)(font "Intel Clear" (font_size 8)))
+	(text "inst" (rect 8 203 24 220)(font "Intel Clear" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clock" (rect 0 0 29 19)(font "Intel Clear" (font_size 8)))
+		(text "clock" (rect 21 27 50 46)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "multiplier[15..0]" (rect 0 0 96 19)(font "Intel Clear" (font_size 8)))
+		(text "multiplier[15..0]" (rect 21 43 117 62)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "MUL" (rect 0 0 27 19)(font "Intel Clear" (font_size 8)))
+		(text "MUL" (rect 21 59 48 78)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "augend1[15..0]" (rect 0 0 90 19)(font "Intel Clear" (font_size 8)))
+		(text "augend1[15..0]" (rect 21 75 111 94)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 80)(pt 16 80)(line_width 3))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "multiplicand[15..0]" (rect 0 0 113 19)(font "Intel Clear" (font_size 8)))
+		(text "multiplicand[15..0]" (rect 21 91 134 110)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 96)(pt 16 96)(line_width 3))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "MSB_con" (rect 0 0 54 19)(font "Intel Clear" (font_size 8)))
+		(text "MSB_con" (rect 21 107 75 126)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 112)(pt 16 112))
+	)
+	(port
+		(pt 0 128)
+		(input)
+		(text "augend2[15..0]" (rect 0 0 90 19)(font "Intel Clear" (font_size 8)))
+		(text "augend2[15..0]" (rect 21 123 111 142)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 128)(pt 16 128)(line_width 3))
+	)
+	(port
+		(pt 0 144)
+		(input)
+		(text "sclr" (rect 0 0 20 19)(font "Intel Clear" (font_size 8)))
+		(text "sclr" (rect 21 139 41 158)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 144)(pt 16 144))
+	)
+	(port
+		(pt 0 160)
+		(input)
+		(text "enable" (rect 0 0 40 19)(font "Intel Clear" (font_size 8)))
+		(text "enable" (rect 21 155 61 174)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 160)(pt 16 160))
+	)
+	(port
+		(pt 0 176)
+		(input)
+		(text "loop" (rect 0 0 25 19)(font "Intel Clear" (font_size 8)))
+		(text "loop" (rect 21 171 46 190)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 176)(pt 16 176))
+	)
+	(port
+		(pt 0 192)
+		(input)
+		(text "cx_eq" (rect 0 0 34 19)(font "Intel Clear" (font_size 8)))
+		(text "cx_eq" (rect 21 187 55 206)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 192)(pt 16 192))
+	)
+	(port
+		(pt 248 32)
+		(output)
+		(text "result2[15..0]" (rect 0 0 80 19)(font "Intel Clear" (font_size 8)))
+		(text "result2[15..0]" (rect 147 27 227 46)(font "Intel Clear" (font_size 8)))
+		(line (pt 248 32)(pt 232 32)(line_width 3))
+	)
+	(port
+		(pt 248 48)
+		(output)
+		(text "mulstate[1..0]" (rect 0 0 82 19)(font "Intel Clear" (font_size 8)))
+		(text "mulstate[1..0]" (rect 145 43 227 62)(font "Intel Clear" (font_size 8)))
+		(line (pt 248 48)(pt 232 48)(line_width 3))
+	)
+	(port
+		(pt 248 64)
+		(output)
+		(text "result1[15..0]" (rect 0 0 80 19)(font "Intel Clear" (font_size 8)))
+		(text "result1[15..0]" (rect 147 59 227 78)(font "Intel Clear" (font_size 8)))
+		(line (pt 248 64)(pt 232 64)(line_width 3))
+	)
+	(port
+		(pt 248 80)
+		(output)
+		(text "result2_en" (rect 0 0 62 19)(font "Intel Clear" (font_size 8)))
+		(text "result2_en" (rect 165 75 227 94)(font "Intel Clear" (font_size 8)))
+		(line (pt 248 80)(pt 232 80))
+	)
+	(port
+		(pt 248 96)
+		(output)
+		(text "result2_rst" (rect 0 0 63 19)(font "Intel Clear" (font_size 8)))
+		(text "result2_rst" (rect 164 91 227 110)(font "Intel Clear" (font_size 8)))
+		(line (pt 248 96)(pt 232 96))
+	)
+	(port
+		(pt 248 112)
+		(output)
+		(text "last" (rect 0 0 21 19)(font "Intel Clear" (font_size 8)))
+		(text "last" (rect 206 107 227 126)(font "Intel Clear" (font_size 8)))
+		(line (pt 248 112)(pt 232 112))
+	)
+	(port
+		(pt 248 128)
+		(output)
+		(text "result1_en" (rect 0 0 62 19)(font "Intel Clear" (font_size 8)))
+		(text "result1_en" (rect 165 123 227 142)(font "Intel Clear" (font_size 8)))
+		(line (pt 248 128)(pt 232 128))
+	)
+	(port
+		(pt 248 144)
+		(output)
+		(text "cx_en" (rect 0 0 33 19)(font "Intel Clear" (font_size 8)))
+		(text "cx_en" (rect 194 139 227 158)(font "Intel Clear" (font_size 8)))
+		(line (pt 248 144)(pt 232 144))
+	)
+	(drawing
+		(rectangle (rect 16 16 232 208))
+	)
+)

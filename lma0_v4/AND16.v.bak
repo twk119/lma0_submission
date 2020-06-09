@@ -1,0 +1,9 @@
+module AND16(
+	input GP5,
+	input [15:0] GP5_data,
+	output [15:0] b
+);
+
+assign b = (GP5_data&({16{GP5}}));
+
+endmodule

@@ -1,0 +1,15 @@
+module ctrl_en_counter(
+	input loop,
+	input EQLT,
+	input idle,
+	input last,
+	input en_mul,
+	
+	output GP1_en,
+	output GP3_en
+);
+
+assign GP1_en = last&(~EQLT|loop)&idle;
+assign GP3_en = ~loop&~EQLT&en_mul&idle;
+
+endmodule

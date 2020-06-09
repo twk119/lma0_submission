@@ -1,0 +1,93 @@
+LDA GP2 0x804
+LDI GP1 10
+MOV GP4 GP2
+traversefirst: LDR GP3 GP2
+               SUB GP3 GP1 C1
+               JEQ GP3 stop
+               ADDI GP3 1
+               MOV GP5 GP4
+               MOV GP4 GP2 
+               LDR GP2 GP2 1
+               JEQ GP2 reachend1
+               JLT GP3 traversefirst
+reachend1:     JLT GP3 lessthan1
+               MOV GP2 GP5
+               JMP traversesecond
+lessthan1:     MOV GP2 GP4
+               JMP shortcut
+traversesecond: LDR GP3 GP2
+                SUB GP3 GP1 C1
+                JEQ GP3 stop
+                ADDI GP3 1
+                MOV GP5 GP4
+                MOV GP4 GP2
+shortcut:       LDR GP2 GP2 2
+                JEQ GP2 reachend2
+                JLT GP3 traversesecond
+reachend2:      JLT GP3 lessthan2
+                MOV GP2 GP5
+                JMP traversethird
+lessthan2:      MOV GP2 GP4
+                JMP shortcut2
+traversethird: LDR GP3 GP2
+               MOV GP5 GP4
+               SUB GP3 GP1 C1
+               JEQ GP3 stop
+               ADDI GP3 1
+               MOV GP4 GP2
+shortcut2:     LDR GP2 GP2 3
+               JEQ GP2 stop
+               JLT GP3 traversethird
+               MOV GP2 GP4
+stop: STP
+ORG 0x800
+DCW 0x2
+DCW 0x960
+DCW 0xb92
+DCW 0xa94
+DCW 800
+ORG 0xa94
+DCW 0x4
+DCW 0x0
+DCW 0x0
+DCw 0xb92
+ORG 0xb92
+DCW 0x5
+DCW 0x0
+DCW 0x960
+DCW 0xd06
+ORG 0xd06
+DCW 0x6
+DCW 0x0
+DCW 0x0
+DCW 0x960
+ORG 0x960
+DCW 0x8
+DCW 0xb80
+DCW 0x918
+DCW 0xf68
+ORG 0xf68
+DCW 0xa
+DCW 0x0
+DCW 0x0
+DCW 0x918
+ORG 0x918
+DCW 0xc
+DCW 0x0
+DCW 0xb80
+DCW 0xb50
+ORG 0xb50
+DCW 0xe
+DCW 0x0
+DCW 0x0
+DCW 0xb80
+ORG 0xb80
+DCW 0xf
+DCW 0x0
+DCW 0x0
+DCW 0xf36
+ORG 0xf36
+DCW 0x10
+DCW 0x0
+DCW 0x0
+DCW 0x0

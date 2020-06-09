@@ -1,0 +1,27 @@
+LDI GP1 5
+LDI SP 0FFC
+fib: SUBI SP 3
+     STR RA SP
+     MOV GP2 GP1
+     JLT GP2 returnOne
+     STR GP2 SP 1
+     MOV GP1 GP2
+     SUBI GP1 1
+     JAL fib
+     MOV GP3 GP4
+     LDR GP2 SP 1
+     STR GP2 SP 1
+     STR GP3 SP 2
+     MOV GP1 GP2
+     SUBI GP1 2
+     JAL fib
+     LDR GP2 SP 1
+     LDR GP3 SP 2
+     ADD GP4 GP3 
+     LDR RA SP 0
+     ADDI SP 3
+     JR RA
+returnOne: LDR RA SP 0
+           ADDI SP 3
+           LDI GP4 1
+           JR RA

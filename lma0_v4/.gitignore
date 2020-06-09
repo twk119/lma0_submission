@@ -1,0 +1,5 @@
+db/*
+incremental_db/*
+output_files/*
+simulation/*
+lma0_v4.qws
