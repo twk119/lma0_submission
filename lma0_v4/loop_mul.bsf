@@ -111,16 +111,16 @@ https://fpgasoftware.intel.com/eula.
 	(port
 		(pt 248 96)
 		(output)
-		(text "last" (rect 0 0 21 19)(font "Intel Clear" (font_size 8)))
-		(text "last" (rect 206 91 227 110)(font "Intel Clear" (font_size 8)))
-		(line (pt 248 96)(pt 232 96))
+		(text "MSB_data[15..0]" (rect 0 0 100 19)(font "Intel Clear" (font_size 8)))
+		(text "MSB_data[15..0]" (rect 127 91 227 110)(font "Intel Clear" (font_size 8)))
+		(line (pt 248 96)(pt 232 96)(line_width 3))
 	)
 	(port
 		(pt 248 112)
 		(output)
-		(text "MSB_data[15..0]" (rect 0 0 100 19)(font "Intel Clear" (font_size 8)))
-		(text "MSB_data[15..0]" (rect 127 107 227 126)(font "Intel Clear" (font_size 8)))
-		(line (pt 248 112)(pt 232 112)(line_width 3))
+		(text "last" (rect 0 0 21 19)(font "Intel Clear" (font_size 8)))
+		(text "last" (rect 206 107 227 126)(font "Intel Clear" (font_size 8)))
+		(line (pt 248 112)(pt 232 112))
 	)
 	(port
 		(pt 248 128)

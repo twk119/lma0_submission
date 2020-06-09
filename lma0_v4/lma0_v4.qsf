@@ -51,15 +51,6 @@ set_global_assignment -name TIMING_ANALYZER_DO_REPORT_TIMING ON
 set_global_assignment -name TIMING_ANALYZER_MULTICORNER_ANALYSIS ON
 set_global_assignment -name NUM_PARALLEL_PROCESSORS ALL
 set_global_assignment -name OPTIMIZATION_MODE BALANCED
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name VERILOG_FILE PG_Gen.v
-set_global_assignment -name VERILOG_FILE one_bit_FA.v
-set_global_assignment -name VERILOG_FILE lcu_cla_16bit.v
-set_global_assignment -name VERILOG_FILE lcu_4_16.v
-set_global_assignment -name VERILOG_FILE CLA_4bit.v
-set_global_assignment -name BDF_FILE regfile_8_twoport_2.bdf
 set_global_assignment -name BDF_FILE loop_mul.bdf
 set_global_assignment -name VERILOG_FILE xsr.v
 set_global_assignment -name BSF_FILE xsr.bsf
@@ -85,8 +76,6 @@ set_global_assignment -name VERILOG_FILE shift0_8bit.v
 set_global_assignment -name BSF_FILE shift0_8bit.bsf
 set_global_assignment -name VERILOG_FILE shift.v
 set_global_assignment -name BSF_FILE shift.bsf
-set_global_assignment -name BSF_FILE regfile_8_twoport.bsf
-set_global_assignment -name BDF_FILE regfile_8_twoport.bdf
 set_global_assignment -name VERILOG_FILE reg_addr.v
 set_global_assignment -name VERILOG_FILE pipelined_decoder.v
 set_global_assignment -name BSF_FILE pipelined_decoder.bsf
@@ -96,37 +85,16 @@ set_global_assignment -name VERILOG_FILE pipelined_ALU_decoder.v
 set_global_assignment -name BSF_FILE pipelined_ALU_decoder.bsf
 set_global_assignment -name BSF_FILE multiplier_8bit.bsf
 set_global_assignment -name BDF_FILE multiplier_8bit.bdf
-set_global_assignment -name VERILOG_FILE mul_8bit.v
 set_global_assignment -name BSF_FILE mul_8bit.bsf
-set_global_assignment -name VERILOG_FILE memsplit.v
 set_global_assignment -name BSF_FILE MAD.bsf
 set_global_assignment -name BDF_FILE MAD.bdf
 set_global_assignment -name BSF_FILE loop_mul.bsf
 set_global_assignment -name BDF_FILE lma0_v4_pipelined.bdf
 set_global_assignment -name SOURCE_FILE lma0_v4.qsf
 set_global_assignment -name SOURCE_FILE lma0_v4.qpf
-set_global_assignment -name MIF_FILE linkedlist.mif
-set_global_assignment -name MIF_FILE linked_list_test.mif
-set_global_assignment -name VERILOG_FILE LCG_tmp.v
-set_global_assignment -name MIF_FILE lcg_test.mif
-set_global_assignment -name BSF_FILE LCG_final.bsf
-set_global_assignment -name BDF_FILE LCG_final.bdf
-set_global_assignment -name MIF_FILE jump_test.mif
-set_global_assignment -name MIF_FILE immediate_test.mif
-set_global_assignment -name MIF_FILE fib_optimized.mif
-set_global_assignment -name MIF_FILE fib_memoized.mif
-set_global_assignment -name MIF_FILE fib_caller.mif
-set_global_assignment -name MIF_FILE fib_callee.mif
-set_global_assignment -name MIF_FILE fib.mif
 set_global_assignment -name VERILOG_FILE EQMI.v
 set_global_assignment -name BSF_FILE EQMI.bsf
-set_global_assignment -name VERILOG_FILE counter_final.v
-set_global_assignment -name BSF_FILE counter_final.bsf
-set_global_assignment -name BSF_FILE counter.bsf
-set_global_assignment -name BDF_FILE counter.bdf
 set_global_assignment -name MIF_FILE controlpath_test.mif
-set_global_assignment -name VERILOG_FILE comparator.v
-set_global_assignment -name BSF_FILE comparator.bsf
 set_global_assignment -name VERILOG_FILE cin_determine.v
 set_global_assignment -name BSF_FILE busmux_4.bsf
 set_global_assignment -name BDF_FILE busmux_4.bdf
@@ -138,25 +106,11 @@ set_global_assignment -name SOURCE_FILE assignment_defaults.qdf
 set_global_assignment -name VERILOG_FILE alu_decode.v
 set_global_assignment -name MIF_FILE addition_test.mif
 set_global_assignment -name QIP_FILE TwoPortRWRAM.qip
-set_global_assignment -name VECTOR_WAVEFORM_FILE "Pictures - Shortcut.lnk.vwf"
-set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform.vwf
 set_global_assignment -name VERILOG_FILE loopInstruction.v
-set_global_assignment -name BDF_FILE testing_tmp.bdf
-set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform1.vwf
-set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform2.vwf
-set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform3.vwf
-set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform4.vwf
-set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform5.vwf
-set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform7.vwf
-set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform8.vwf
-set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform9.vwf
-set_global_assignment -name VERILOG_FILE en_control.v
 set_global_assignment -name VERILOG_FILE AND16.v
 set_global_assignment -name VERILOG_FILE GP2_en_ctrl.v
-set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform10.vwf
 set_global_assignment -name VERILOG_FILE ctrl_en_counter.v
 set_global_assignment -name BDF_FILE MAC_loop.bdf
-set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform11.vwf
 set_global_assignment -name BDF_FILE lma0_v4_pipelined_totest.bdf
 set_global_assignment -name SDC_FILE lma0_v4.sdc
 set_global_assignment -name BDF_FILE regfile_8_twoport_3.bdf
@@ -169,7 +123,8 @@ set_global_assignment -name VERILOG_FILE bka_16_nocout.v
 set_global_assignment -name VERILOG_FILE pg_blackcell.v
 set_global_assignment -name VERILOG_FILE pg_graycell.v
 set_global_assignment -name VERILOG_FILE pg_onebit.v
-set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform12.vwf
-set_global_assignment -name VERILOG_FILE test_bka.v
-set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform13.vwf
+set_global_assignment -name BDF_FILE adder_eval.bdf
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

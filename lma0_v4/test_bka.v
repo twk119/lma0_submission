@@ -46,7 +46,9 @@ wire cp614;
 wire cg614;
 
 wire [16:0] s;
-// start fist level
+// start fist level. Odd bits are put through black cells first.
+// First layer: 1, 3, 5, 7, 9, 11, 13, 15.
+
 assign p[0] = a[0] ^ b[0];//first level zero bit start
 assign g[0] = a[0] & b[0];
 assign cp1[0] = p[0];
@@ -127,59 +129,66 @@ assign g[15] = a[15] & b[15];
 assign cg1[15] = (p[15] & g[14]) | g[15];
 assign cp1[15] = p[15] & p[14];
 
+// Second layer: Bits directly after a known number
+
+// 2:0, 3:0
 assign cp22 = cp1[2] & cp1[1];
 assign cg22 = (cp1[2] & cg1[1]) | cg1[2];
 assign cg23 = (cp1[3] & cg1[1]) | cg1[3];
 assign cp23 = cp1[3] & cp1[1];
 
+// 7:4
 assign cg27 = (cp1[7] & cg1[5]) | cg1[7];
 assign cp27 = cp1[7] & cp1[5];
 
-
+// Third layer, 4:0
 assign cg34 = (cp1[4] & cg23) | cg1[4];
 assign cp34 = cp1[4] & cp23;
-
+// Third layer, 5:0
 assign cg35 = (cp1[5] & cg23) | cg1[5];
 assign cp35 = cp1[5] & cp23;
-
+// Third layer, 6:0, 7:0
 assign cg36 = (cp1[6] & cg35) | cg1[6];
 assign cp36 = cp1[6] & cp35;
 assign cg37 = (cp27 & cg23) | cg27;
 assign cp37 = cp27 & cp23;
-
+// Second layer, 11:8
 assign cg211 = (cp1[11] & cg1[9]) | cg1[11];
 assign cp211 = cp1[11] & cp1[9];
-
+// Second layer, 15:12
 assign cg215 = (cp1[15] & cg1[13]) | cg1[15];
 assign cp215 = cp1[15] & cp1[13];
-
+// Third layer, 15:8
 assign cg315 = (cp215 & cg211) | cg215;
 assign cp315 = cp215 & cp211;
-
+// Fourth layer, 11:0
 assign cg411 = (cp211 & cg37) | cg211;
 assign cp411 = cp211 & cp37;
-
+// Fourth layer, 15:0
 assign cg415 = (cp315 & cg37) | cg315;
 assign cp415 = cp315 & cp37;
-
+// Fifth Layer, 9:0
 assign cg59 = (cp1[9] & cg37) | cg1[9];
 assign cp59 = cp1[9] & cp37;
-
+// Fifth layer, 13:0
 assign cg513 = (cp1[13] & cg411) | cg1[13];
 assign cp513 = cp1[13] & cp411;
-
+// Sixth Layer, 8:0
 assign cg68 = (cp1[8] & cg37) | cg1[8];
 assign cp68 = cp1[8] & cp37;
-
+// Sixth Layer, 10:0
 assign cg610 = (cp1[10] & cg59) | cg1[10];
 assign cp610 = cp1[10] & cp59;
-
+// Sixth Layer, 12:0
 assign cg612 = (cp1[12] & cg411) | cg1[12];
 assign cp612 = cp1[12] & cp411;
-
+// Sixth Layer, 14:0
 assign cg614 = (cp1[14] & cg513) | cg1[14];
 assign cp614 = cp1[14] & cp513;
 
+
+// Assign sums: s[n] = a[n] ^ b[n] ^ cin.
+// cin = previous generate term
 assign s[0] = p[0];
 assign s[1] = p[1] ^ cg1[0];
 assign s[2] = p[2] ^ cg1[1];

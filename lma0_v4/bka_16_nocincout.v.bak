@@ -1,10 +1,9 @@
-module bka16_nocin(a, b, q, cout);
+module bka_16_nocincout(a, b, q);
 
 input [15:0] a;
 input [15:0] b;
 
 output [15:0] q;
-output cout;
 
 wire c0, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14;
 
@@ -33,7 +32,6 @@ pg_onebit pg15(a[15], b[15], p15, g15);
 
 // Calculate
 assign c0 = a[0] & b[0];
-//pg_graycell gc0(p0, g0, cin, c0);
 pg_graycell gc1(p1, g1, c0, c1);
 pg_graycell gc2(p2, g2, c1, c2);
 
@@ -51,7 +49,7 @@ pg_graycell gc7(p74, g74, c3, c7);
 
 pg_blackcell bc98(p9, g9, p8, g8, p98, g98);
 pg_graycell gc8(p8, g8, c7, c8);
-pg_graycell gc9(p9, g9, c8, c9);
+pg_graycell gc9(p9, g9, c7, c9);
 
 pg_blackcell bc1110(p11, g11, p10, g10, p1110, g1110);
 pg_blackcell bc118(p1110, g1110, p98, g98, p118, g118);
@@ -62,10 +60,10 @@ pg_blackcell bc1312(p13, g13, p12, g12, p1312, g1312);
 pg_graycell gc13(p1312, g1312, c11, c13);
 pg_graycell gc12(p12, g12, c11, c12);
 
-pg_blackcell bc1514(p15, g15, p14, g14, p1514, g1514);
-pg_blackcell bc1512(p1514, g1514, p1312, g1312, p1512, g1512);
-pg_blackcell bc158(p1512, g1512, p118, g118, p158, g158);
-pg_graycell gc15(p158, g158, c7, cout);
+//pg_blackcell bc1514(p15, g15, p14, g14, p1514, g1514);
+//pg_blackcell bc1512(p1514, g1514, p1312, g1312, p1512, g1512);
+//pg_blackcell bc158(p1512, g1512, p118, g118, p158, g158);
+//pg_graycell gc15(p158, g158, c7, cout);
 pg_graycell gc14(p14, g14, c13, c14);
 
 // Add

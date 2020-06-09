@@ -50,7 +50,7 @@ pg_graycell gc7(p74, g74, c3, c7);
 
 pg_blackcell bc98(p9, g9, p8, g8, p98, g98);
 pg_graycell gc8(p8, g8, c7, c8);
-pg_graycell gc9(p9, g9, c7, c9);
+pg_graycell gc9(p9, g9, c8, c9);
 
 pg_blackcell bc1110(p11, g11, p10, g10, p1110, g1110);
 pg_blackcell bc118(p1110, g1110, p98, g98, p118, g118);
