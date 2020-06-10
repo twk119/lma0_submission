@@ -2,17 +2,15 @@ LDI GP1 5
 LDI GP4 0x3F
 LDI SP 0x0FFF
 fib: JLT GP1 returnOne
-     SUBI SP 0x03
-     STR RA SP 0
-     STR GP1 SP 1
      MOV GP5 GP1
      ADD GP5 GP4
      LDR GP2 GP5 0
      JEQ GP2 calc
-     LDR RA SP 0
-     ADDI SP 0x03
      JR RA
-calc: SUBI GP1 1
+calc: SUBI SP 0x03
+      STR RA SP 0
+      STR GP1 SP 1
+      SUBI GP1 1
       JAL fib
       STR GP2 SP 2
       LDR GP1 SP 1
