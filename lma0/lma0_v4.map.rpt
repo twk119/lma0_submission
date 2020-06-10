@@ -1,0 +1,1631 @@
+Analysis & Synthesis report for lma0_v4
+Wed Jun 10 22:37:22 2020
+Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Source assignments for TwoPortRWRAM:speedyRAM|altsyncram:altsyncram_component|altsyncram_ahq2:auto_generated
+ 12. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|LPM_DFF:Carry_DFF
+ 13. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|BUSMUX:reg_offset
+ 14. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|BUSMUX:add_mov
+ 15. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|BUSMUX:Rd_GFR
+ 16. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|LPM_DECODE:r0demux8
+ 17. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|LPM_DECODE:r1demux
+ 18. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|BUSMUX:GP2_datasel
+ 19. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|BUSMUX:GP2_datasel2
+ 20. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|lpm_mux:MUX4A
+ 21. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|LPM_FF:GP1
+ 22. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|BUSMUX:GP1_datasel
+ 23. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|BUSMUX:GP1_datasel2
+ 24. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|LPM_FF:GP2
+ 25. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|LPM_FF:GP3
+ 26. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|BUSMUX:GP3_datasel
+ 27. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|LPM_FF:GP4
+ 28. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|BUSMUX:GP4_datasel
+ 29. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|LPM_FF:GP5
+ 30. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|BUSMUX:GP5_datasel
+ 31. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|LPM_FF:SP
+ 32. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|BUSMUX:GP3_datasel6
+ 33. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|LPM_FF:RA
+ 34. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|BUSMUX:RA_datasel
+ 35. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|lpm_mux:MUX4B
+ 36. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|MAC_loop:inst2|BUSMUX:inst6
+ 37. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|LPM_DFF:multStateDFF
+ 38. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|BUSMUX:inst19
+ 39. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|busmux_4:mux4|BUSMUX:inst3
+ 40. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|busmux_4:mux4|BUSMUX:inst
+ 41. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|busmux_4:mux4|BUSMUX:inst2
+ 42. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|LPM_FF:inst1
+ 43. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|LPM_FF:inst4
+ 44. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|BUSMUX:inst2
+ 45. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|MAC_loop:inst2|BUSMUX:inst4
+ 46. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|LPM_DFF:Load_Status
+ 47. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|BUSMUX:add_load
+ 48. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|BUSMUX:bit_select
+ 49. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|BUSMUX:xsr_select
+ 50. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|BUSMUX:Rs_GFR
+ 51. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|LPM_DFF:Prev_Reg
+ 52. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|BUSMUX:add_sub
+ 53. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|BUSMUX:reg_Im
+ 54. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|LPM_INV:invert
+ 55. Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|BUSMUX:alu_Read
+ 56. Parameter Settings for User Entity Instance: BUSMUX:ir_mux
+ 57. Parameter Settings for User Entity Instance: LPM_FF:loopff
+ 58. Parameter Settings for User Entity Instance: TwoPortRWRAM:speedyRAM|altsyncram:altsyncram_component
+ 59. Parameter Settings for User Entity Instance: BUSMUX:instrSel_Mux
+ 60. Parameter Settings for User Entity Instance: LPM_FF:PC_2
+ 61. Parameter Settings for User Entity Instance: LPM_ADD_SUB:inst3
+ 62. Parameter Settings for User Entity Instance: BUSMUX:pc_InstrReg5
+ 63. Parameter Settings for User Entity Instance: BUSMUX:pc_InstrReg
+ 64. Parameter Settings for User Entity Instance: BUSMUX:dataSel_Mux
+ 65. Parameter Settings for User Entity Instance: LPM_FF:IR
+ 66. altsyncram Parameter Settings by Entity Instance
+ 67. Post-Synthesis Netlist Statistics for Top Partition
+ 68. Elapsed Time Per Partition
+ 69. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2019  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Wed Jun 10 22:37:22 2020       ;
+; Quartus Prime Version           ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
+; Revision Name                   ; lma0_v4                                     ;
+; Top-level Entity Name           ; lma0                                        ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 182                                         ;
+; Total pins                      ; 254                                         ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 65,536                                      ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CGXFC7C7F23C8     ;                    ;
+; Top-level entity name                                                           ; lma0               ; lma0_v4            ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                   ;
++----------------------------------+-----------------+------------------------------------------+--------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                                ; File Name with Absolute Path                                                   ; Library ;
++----------------------------------+-----------------+------------------------------------------+--------------------------------------------------------------------------------+---------+
+; lma0.bdf                         ; yes             ; User Block Diagram/Schematic File        ; C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/lma0.bdf                   ;         ;
+; pipelined_decoder.v              ; yes             ; Auto-Found Verilog HDL File              ; C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/pipelined_decoder.v        ;         ;
+; eqmi.v                           ; yes             ; Auto-Found Verilog HDL File              ; C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/eqmi.v                     ;         ;
+; pipelined_alu_regfile.bdf        ; yes             ; Auto-Found Block Diagram/Schematic File  ; C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/pipelined_alu_regfile.bdf  ;         ;
+; pipelined_alu_decoder.v          ; yes             ; Auto-Found Verilog HDL File              ; C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/pipelined_alu_decoder.v    ;         ;
+; lpm_dff.tdf                      ; yes             ; Megafunction                             ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/lpm_dff.tdf             ;         ;
+; lpm_constant.inc                 ; yes             ; Megafunction                             ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/lpm_constant.inc        ;         ;
+; dffeea.inc                       ; yes             ; Megafunction                             ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/dffeea.inc              ;         ;
+; aglobal191.inc                   ; yes             ; Megafunction                             ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/aglobal191.inc          ;         ;
+; addcincout.v                     ; yes             ; Auto-Found Verilog HDL File              ; C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/addcincout.v               ;         ;
+; busmux.tdf                       ; yes             ; Megafunction                             ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/busmux.tdf              ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                             ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/lpm_mux.inc             ;         ;
+; lpm_mux.tdf                      ; yes             ; Megafunction                             ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/lpm_mux.tdf             ;         ;
+; muxlut.inc                       ; yes             ; Megafunction                             ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/muxlut.inc              ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                             ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/bypassff.inc            ;         ;
+; altshift.inc                     ; yes             ; Megafunction                             ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/altshift.inc            ;         ;
+; db/mux_flc.tdf                   ; yes             ; Auto-Generated Megafunction              ; C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/db/mux_flc.tdf             ;         ;
+; regfile_8_twoport_3.bdf          ; yes             ; Auto-Found Block Diagram/Schematic File  ; C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/regfile_8_twoport_3.bdf    ;         ;
+; lpm_decode.tdf                   ; yes             ; Megafunction                             ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/lpm_decode.tdf          ;         ;
+; declut.inc                       ; yes             ; Megafunction                             ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/declut.inc              ;         ;
+; lpm_compare.inc                  ; yes             ; Megafunction                             ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/lpm_compare.inc         ;         ;
+; db/decode_7of.tdf                ; yes             ; Auto-Generated Megafunction              ; C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/db/decode_7of.tdf          ;         ;
+; db/mux_nlc.tdf                   ; yes             ; Auto-Generated Megafunction              ; C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/db/mux_nlc.tdf             ;         ;
+; lpm_ff.tdf                       ; yes             ; Megafunction                             ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/lpm_ff.tdf              ;         ;
+; mac_loop.bdf                     ; yes             ; Auto-Found Block Diagram/Schematic File  ; C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/mac_loop.bdf               ;         ;
+; db/mux_pjc.tdf                   ; yes             ; Auto-Generated Megafunction              ; C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/db/mux_pjc.tdf             ;         ;
+; ctrl_en_counter.v                ; yes             ; Auto-Found Verilog HDL File              ; C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/ctrl_en_counter.v          ;         ;
+; mad.bdf                          ; yes             ; Auto-Found Block Diagram/Schematic File  ; C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/mad.bdf                    ;         ;
+; loop_mul.bdf                     ; yes             ; Auto-Found Block Diagram/Schematic File  ; C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/loop_mul.bdf               ;         ;
+; sm.v                             ; yes             ; Auto-Found Verilog HDL File              ; C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/sm.v                       ;         ;
+; shift.v                          ; yes             ; Auto-Found Verilog HDL File              ; C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/shift.v                    ;         ;
+; multiplier_8bit.bdf              ; yes             ; Auto-Found Block Diagram/Schematic File  ; C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/multiplier_8bit.bdf        ;         ;
+; add16.v                          ; yes             ; Auto-Found Verilog HDL File              ; C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/add16.v                    ;         ;
+; shift0_8bit.v                    ; yes             ; Auto-Found Verilog HDL File              ; C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/shift0_8bit.v              ;         ;
+; shift1_8bit.v                    ; yes             ; Auto-Found Verilog HDL File              ; C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/shift1_8bit.v              ;         ;
+; shift2_8bit.v                    ; yes             ; Auto-Found Verilog HDL File              ; C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/shift2_8bit.v              ;         ;
+; shift3_8bit.v                    ; yes             ; Auto-Found Verilog HDL File              ; C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/shift3_8bit.v              ;         ;
+; shift4_8bit.v                    ; yes             ; Auto-Found Verilog HDL File              ; C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/shift4_8bit.v              ;         ;
+; shift5_8bit.v                    ; yes             ; Auto-Found Verilog HDL File              ; C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/shift5_8bit.v              ;         ;
+; shift6_8bit.v                    ; yes             ; Auto-Found Verilog HDL File              ; C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/shift6_8bit.v              ;         ;
+; shift7_8bit.v                    ; yes             ; Auto-Found Verilog HDL File              ; C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/shift7_8bit.v              ;         ;
+; and16.v                          ; yes             ; Auto-Found Verilog HDL File              ; C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/and16.v                    ;         ;
+; busmux_4.bdf                     ; yes             ; Auto-Found Block Diagram/Schematic File  ; C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/busmux_4.bdf               ;         ;
+; shift4.v                         ; yes             ; Auto-Found Verilog HDL File              ; C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/shift4.v                   ;         ;
+; xsr.v                            ; yes             ; Auto-Found Verilog HDL File              ; C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/xsr.v                      ;         ;
+; bitwise.v                        ; yes             ; Auto-Found Verilog HDL File              ; C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/bitwise.v                  ;         ;
+; lpm_inv.tdf                      ; yes             ; Megafunction                             ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/lpm_inv.tdf             ;         ;
+; reg_addr.v                       ; yes             ; Auto-Found Verilog HDL File              ; C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/reg_addr.v                 ;         ;
+; twoportrwram.v                   ; yes             ; Auto-Found Wizard-Generated File         ; C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/twoportrwram.v             ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                             ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/altsyncram.tdf          ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                             ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/stratix_ram_block.inc   ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                             ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/lpm_decode.inc          ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                             ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/a_rdenreg.inc           ;         ;
+; altrom.inc                       ; yes             ; Megafunction                             ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/altrom.inc              ;         ;
+; altram.inc                       ; yes             ; Megafunction                             ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/altram.inc              ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                             ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/altdpram.inc            ;         ;
+; db/altsyncram_ahq2.tdf           ; yes             ; Auto-Generated Megafunction              ; C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/db/altsyncram_ahq2.tdf     ;         ;
+; ../../../lcg_test.mif            ; yes             ; Auto-Found Memory Initialization File    ; C:/Users/cktwm/Desktop/lcg_test.mif                                            ;         ;
+; db/mux_alc.tdf                   ; yes             ; Auto-Generated Megafunction              ; C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/db/mux_alc.tdf             ;         ;
+; lpm_add_sub.tdf                  ; yes             ; Megafunction                             ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/lpm_add_sub.tdf         ;         ;
+; addcore.inc                      ; yes             ; Megafunction                             ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/addcore.inc             ;         ;
+; look_add.inc                     ; yes             ; Megafunction                             ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/look_add.inc            ;         ;
+; alt_stratix_add_sub.inc          ; yes             ; Megafunction                             ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/alt_stratix_add_sub.inc ;         ;
+; db/add_sub_v0b.tdf               ; yes             ; Auto-Generated Megafunction              ; C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/db/add_sub_v0b.tdf         ;         ;
+; db/mux_blc.tdf                   ; yes             ; Auto-Generated Megafunction              ; C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/db/mux_blc.tdf             ;         ;
+; buffer.v                         ; yes             ; Auto-Found Verilog HDL File              ; C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/buffer.v                   ;         ;
++----------------------------------+-----------------+------------------------------------------+--------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimate of Logic utilization (ALMs needed) ; 473         ;
+;                                             ;             ;
+; Combinational ALUT usage for logic          ; 687         ;
+;     -- 7 input functions                    ; 1           ;
+;     -- 6 input functions                    ; 191         ;
+;     -- 5 input functions                    ; 155         ;
+;     -- 4 input functions                    ; 127         ;
+;     -- <=3 input functions                  ; 213         ;
+;                                             ;             ;
+; Dedicated logic registers                   ; 182         ;
+;                                             ;             ;
+; I/O pins                                    ; 254         ;
+; Total MLAB memory bits                      ; 0           ;
+; Total block memory bits                     ; 65536       ;
+;                                             ;             ;
+; Total DSP Blocks                            ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; CLK_enabler ;
+; Maximum fan-out                             ; 198         ;
+; Total fan-out                               ; 4773        ;
+; Average fan-out                             ; 3.43        ;
++---------------------------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                           ;
++--------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
+; Compilation Hierarchy Node                       ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                        ; Entity Name           ; Library Name ;
++--------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
+; |lma0                                            ; 687 (3)             ; 182 (0)                   ; 65536             ; 0          ; 254  ; 0            ; |lma0                                                                                                                                      ; lma0                  ; work         ;
+;    |EQMI:EQMI|                                   ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|EQMI:EQMI                                                                                                                            ; EQMI                  ; work         ;
+;    |TwoPortRWRAM:speedyRAM|                      ; 0 (0)               ; 0 (0)                     ; 65536             ; 0          ; 0    ; 0            ; |lma0|TwoPortRWRAM:speedyRAM                                                                                                               ; TwoPortRWRAM          ; work         ;
+;       |altsyncram:altsyncram_component|          ; 0 (0)               ; 0 (0)                     ; 65536             ; 0          ; 0    ; 0            ; |lma0|TwoPortRWRAM:speedyRAM|altsyncram:altsyncram_component                                                                               ; altsyncram            ; work         ;
+;          |altsyncram_ahq2:auto_generated|        ; 0 (0)               ; 0 (0)                     ; 65536             ; 0          ; 0    ; 0            ; |lma0|TwoPortRWRAM:speedyRAM|altsyncram:altsyncram_component|altsyncram_ahq2:auto_generated                                                ; altsyncram_ahq2       ; work         ;
+;    |busmux:dataSel_Mux|                          ; 12 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|busmux:dataSel_Mux                                                                                                                   ; busmux                ; work         ;
+;       |lpm_mux:$00000|                           ; 12 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|busmux:dataSel_Mux|lpm_mux:$00000                                                                                                    ; lpm_mux               ; work         ;
+;          |mux_blc:auto_generated|                ; 12 (12)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|busmux:dataSel_Mux|lpm_mux:$00000|mux_blc:auto_generated                                                                             ; mux_blc               ; work         ;
+;    |busmux:instrSel_Mux|                         ; 22 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|busmux:instrSel_Mux                                                                                                                  ; busmux                ; work         ;
+;       |lpm_mux:$00000|                           ; 22 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|busmux:instrSel_Mux|lpm_mux:$00000                                                                                                   ; lpm_mux               ; work         ;
+;          |mux_alc:auto_generated|                ; 22 (22)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|busmux:instrSel_Mux|lpm_mux:$00000|mux_alc:auto_generated                                                                            ; mux_alc               ; work         ;
+;    |busmux:ir_mux|                               ; 16 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|busmux:ir_mux                                                                                                                        ; busmux                ; work         ;
+;       |lpm_mux:$00000|                           ; 16 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|busmux:ir_mux|lpm_mux:$00000                                                                                                         ; lpm_mux               ; work         ;
+;          |mux_flc:auto_generated|                ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|busmux:ir_mux|lpm_mux:$00000|mux_flc:auto_generated                                                                                  ; mux_flc               ; work         ;
+;    |lpm_add_sub:inst3|                           ; 11 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|lpm_add_sub:inst3                                                                                                                    ; lpm_add_sub           ; work         ;
+;       |add_sub_v0b:auto_generated|               ; 11 (11)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|lpm_add_sub:inst3|add_sub_v0b:auto_generated                                                                                         ; add_sub_v0b           ; work         ;
+;    |lpm_ff:IR|                                   ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lma0|lpm_ff:IR                                                                                                                            ; lpm_ff                ; work         ;
+;    |lpm_ff:PC_2|                                 ; 0 (0)               ; 11 (11)                   ; 0                 ; 0          ; 0    ; 0            ; |lma0|lpm_ff:PC_2                                                                                                                          ; lpm_ff                ; work         ;
+;    |lpm_ff:loopff|                               ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|lpm_ff:loopff                                                                                                                        ; lpm_ff                ; work         ;
+;    |pipelined_ALU_regfile:inst8|                 ; 570 (1)             ; 154 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8                                                                                                          ; pipelined_ALU_regfile ; work         ;
+;       |MAC_loop:inst2|                           ; 262 (1)             ; 37 (1)                    ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2                                                                                           ; MAC_loop              ; work         ;
+;          |MAD:inst|                              ; 254 (0)             ; 36 (2)                    ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst                                                                                  ; MAD                   ; work         ;
+;             |add16:inst8|                        ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|add16:inst8                                                                      ; add16                 ; work         ;
+;             |add16:inst|                         ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|add16:inst                                                                       ; add16                 ; work         ;
+;             |loop_mul:inst19|                    ; 222 (1)             ; 2 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19                                                                  ; loop_mul              ; work         ;
+;                |SM:multStateMachine|             ; 37 (37)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|SM:multStateMachine                                              ; SM                    ; work         ;
+;                |addcincout:inst5|                ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|addcincout:inst5                                                 ; addcincout            ; work         ;
+;                |addcincout:inst|                 ; 17 (17)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|addcincout:inst                                                  ; addcincout            ; work         ;
+;                |busmux:inst19|                   ; 16 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|busmux:inst19                                                    ; busmux                ; work         ;
+;                   |lpm_mux:$00000|               ; 16 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|busmux:inst19|lpm_mux:$00000                                     ; lpm_mux               ; work         ;
+;                      |mux_flc:auto_generated|    ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|busmux:inst19|lpm_mux:$00000|mux_flc:auto_generated              ; mux_flc               ; work         ;
+;                |busmux_4:mux4|                   ; 17 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|busmux_4:mux4                                                    ; busmux_4              ; work         ;
+;                   |busmux:inst2|                 ; 9 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|busmux_4:mux4|busmux:inst2                                       ; busmux                ; work         ;
+;                      |lpm_mux:$00000|            ; 9 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|busmux_4:mux4|busmux:inst2|lpm_mux:$00000                        ; lpm_mux               ; work         ;
+;                         |mux_flc:auto_generated| ; 9 (9)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|busmux_4:mux4|busmux:inst2|lpm_mux:$00000|mux_flc:auto_generated ; mux_flc               ; work         ;
+;                   |busmux:inst3|                 ; 8 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|busmux_4:mux4|busmux:inst3                                       ; busmux                ; work         ;
+;                      |lpm_mux:$00000|            ; 8 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|busmux_4:mux4|busmux:inst3|lpm_mux:$00000                        ; lpm_mux               ; work         ;
+;                         |mux_flc:auto_generated| ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|busmux_4:mux4|busmux:inst3|lpm_mux:$00000|mux_flc:auto_generated ; mux_flc               ; work         ;
+;                |lpm_dff:multStateDFF|            ; 2 (2)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|lpm_dff:multStateDFF                                             ; lpm_dff               ; work         ;
+;                |multiplier_8bit:8bit_mult|       ; 105 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|multiplier_8bit:8bit_mult                                        ; multiplier_8bit       ; work         ;
+;                   |add16:inst10|                 ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|multiplier_8bit:8bit_mult|add16:inst10                           ; add16                 ; work         ;
+;                   |add16:inst11|                 ; 12 (12)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|multiplier_8bit:8bit_mult|add16:inst11                           ; add16                 ; work         ;
+;                   |add16:inst12|                 ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|multiplier_8bit:8bit_mult|add16:inst12                           ; add16                 ; work         ;
+;                   |add16:inst13|                 ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|multiplier_8bit:8bit_mult|add16:inst13                           ; add16                 ; work         ;
+;                   |add16:inst14|                 ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|multiplier_8bit:8bit_mult|add16:inst14                           ; add16                 ; work         ;
+;                   |add16:inst1|                  ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|multiplier_8bit:8bit_mult|add16:inst1                            ; add16                 ; work         ;
+;                   |add16:inst9|                  ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|multiplier_8bit:8bit_mult|add16:inst9                            ; add16                 ; work         ;
+;                   |shift0_8bit:inst|             ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|multiplier_8bit:8bit_mult|shift0_8bit:inst                       ; shift0_8bit           ; work         ;
+;                   |shift1_8bit:inst2|            ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|multiplier_8bit:8bit_mult|shift1_8bit:inst2                      ; shift1_8bit           ; work         ;
+;                   |shift2_8bit:inst3|            ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|multiplier_8bit:8bit_mult|shift2_8bit:inst3                      ; shift2_8bit           ; work         ;
+;                   |shift3_8bit:inst4|            ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|multiplier_8bit:8bit_mult|shift3_8bit:inst4                      ; shift3_8bit           ; work         ;
+;                   |shift4_8bit:inst5|            ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|multiplier_8bit:8bit_mult|shift4_8bit:inst5                      ; shift4_8bit           ; work         ;
+;                   |shift5_8bit:inst6|            ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|multiplier_8bit:8bit_mult|shift5_8bit:inst6                      ; shift5_8bit           ; work         ;
+;                   |shift6_8bit:inst7|            ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|multiplier_8bit:8bit_mult|shift6_8bit:inst7                      ; shift6_8bit           ; work         ;
+;                   |shift7_8bit:inst8|            ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|multiplier_8bit:8bit_mult|shift7_8bit:inst8                      ; shift7_8bit           ; work         ;
+;                |shift:shift|                     ; 11 (11)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|shift:shift                                                      ; shift                 ; work         ;
+;             |lpm_ff:inst1|                       ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|lpm_ff:inst1                                                                     ; lpm_ff                ; work         ;
+;             |lpm_ff:inst4|                       ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|lpm_ff:inst4                                                                     ; lpm_ff                ; work         ;
+;          |busmux:inst6|                          ; 3 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|busmux:inst6                                                                              ; busmux                ; work         ;
+;             |lpm_mux:$00000|                     ; 3 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|busmux:inst6|lpm_mux:$00000                                                               ; lpm_mux               ; work         ;
+;                |mux_pjc:auto_generated|          ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|busmux:inst6|lpm_mux:$00000|mux_pjc:auto_generated                                        ; mux_pjc               ; work         ;
+;          |ctrl_en_counter:inst1|                 ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|ctrl_en_counter:inst1                                                                     ; ctrl_en_counter       ; work         ;
+;       |addcincout:inst3|                         ; 17 (17)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|addcincout:inst3                                                                                         ; addcincout            ; work         ;
+;       |busmux:Rd_GFR|                            ; 16 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|busmux:Rd_GFR                                                                                            ; busmux                ; work         ;
+;          |lpm_mux:$00000|                        ; 16 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|busmux:Rd_GFR|lpm_mux:$00000                                                                             ; lpm_mux               ; work         ;
+;             |mux_flc:auto_generated|             ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|busmux:Rd_GFR|lpm_mux:$00000|mux_flc:auto_generated                                                      ; mux_flc               ; work         ;
+;       |busmux:Rs_GFR|                            ; 56 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|busmux:Rs_GFR                                                                                            ; busmux                ; work         ;
+;          |lpm_mux:$00000|                        ; 56 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|busmux:Rs_GFR|lpm_mux:$00000                                                                             ; lpm_mux               ; work         ;
+;             |mux_flc:auto_generated|             ; 56 (56)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|busmux:Rs_GFR|lpm_mux:$00000|mux_flc:auto_generated                                                      ; mux_flc               ; work         ;
+;       |busmux:add_load|                          ; 16 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|busmux:add_load                                                                                          ; busmux                ; work         ;
+;          |lpm_mux:$00000|                        ; 16 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|busmux:add_load|lpm_mux:$00000                                                                           ; lpm_mux               ; work         ;
+;             |mux_flc:auto_generated|             ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|busmux:add_load|lpm_mux:$00000|mux_flc:auto_generated                                                    ; mux_flc               ; work         ;
+;       |busmux:alu_Read|                          ; 16 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|busmux:alu_Read                                                                                          ; busmux                ; work         ;
+;          |lpm_mux:$00000|                        ; 16 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|busmux:alu_Read|lpm_mux:$00000                                                                           ; lpm_mux               ; work         ;
+;             |mux_flc:auto_generated|             ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|busmux:alu_Read|lpm_mux:$00000|mux_flc:auto_generated                                                    ; mux_flc               ; work         ;
+;       |busmux:bit_select|                        ; 33 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|busmux:bit_select                                                                                        ; busmux                ; work         ;
+;          |lpm_mux:$00000|                        ; 33 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|busmux:bit_select|lpm_mux:$00000                                                                         ; lpm_mux               ; work         ;
+;             |mux_flc:auto_generated|             ; 33 (33)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|busmux:bit_select|lpm_mux:$00000|mux_flc:auto_generated                                                  ; mux_flc               ; work         ;
+;       |busmux:reg_Im|                            ; 8 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|busmux:reg_Im                                                                                            ; busmux                ; work         ;
+;          |lpm_mux:$00000|                        ; 8 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|busmux:reg_Im|lpm_mux:$00000                                                                             ; lpm_mux               ; work         ;
+;             |mux_flc:auto_generated|             ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|busmux:reg_Im|lpm_mux:$00000|mux_flc:auto_generated                                                      ; mux_flc               ; work         ;
+;       |busmux:reg_offset|                        ; 17 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|busmux:reg_offset                                                                                        ; busmux                ; work         ;
+;          |lpm_mux:$00000|                        ; 17 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|busmux:reg_offset|lpm_mux:$00000                                                                         ; lpm_mux               ; work         ;
+;             |mux_flc:auto_generated|             ; 17 (17)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|busmux:reg_offset|lpm_mux:$00000|mux_flc:auto_generated                                                  ; mux_flc               ; work         ;
+;       |lpm_dff:Carry_DFF|                        ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|lpm_dff:Carry_DFF                                                                                        ; lpm_dff               ; work         ;
+;       |lpm_dff:Load_Status|                      ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|lpm_dff:Load_Status                                                                                      ; lpm_dff               ; work         ;
+;       |lpm_dff:Prev_Reg|                         ; 0 (0)               ; 3 (3)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|lpm_dff:Prev_Reg                                                                                         ; lpm_dff               ; work         ;
+;       |pipelined_ALU_decoder:inst|               ; 24 (24)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|pipelined_ALU_decoder:inst                                                                               ; pipelined_ALU_decoder ; work         ;
+;       |regfile_8_twoport_3:regfile_8_twoport|    ; 104 (8)             ; 112 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport                                                                    ; regfile_8_twoport_3   ; work         ;
+;          |busmux:GP1_datasel|                    ; 16 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|busmux:GP1_datasel                                                 ; busmux                ; work         ;
+;             |lpm_mux:$00000|                     ; 16 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|busmux:GP1_datasel|lpm_mux:$00000                                  ; lpm_mux               ; work         ;
+;                |mux_flc:auto_generated|          ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|busmux:GP1_datasel|lpm_mux:$00000|mux_flc:auto_generated           ; mux_flc               ; work         ;
+;          |busmux:GP2_datasel|                    ; 18 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|busmux:GP2_datasel                                                 ; busmux                ; work         ;
+;             |lpm_mux:$00000|                     ; 18 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|busmux:GP2_datasel|lpm_mux:$00000                                  ; lpm_mux               ; work         ;
+;                |mux_flc:auto_generated|          ; 18 (18)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|busmux:GP2_datasel|lpm_mux:$00000|mux_flc:auto_generated           ; mux_flc               ; work         ;
+;          |lpm_decode:r0demux8|                   ; 5 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|lpm_decode:r0demux8                                                ; lpm_decode            ; work         ;
+;             |decode_7of:auto_generated|          ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|lpm_decode:r0demux8|decode_7of:auto_generated                      ; decode_7of            ; work         ;
+;          |lpm_decode:r1demux|                    ; 6 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|lpm_decode:r1demux                                                 ; lpm_decode            ; work         ;
+;             |decode_7of:auto_generated|          ; 6 (6)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|lpm_decode:r1demux|decode_7of:auto_generated                       ; decode_7of            ; work         ;
+;          |lpm_ff:GP1|                            ; 1 (1)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|lpm_ff:GP1                                                         ; lpm_ff                ; work         ;
+;          |lpm_ff:GP2|                            ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|lpm_ff:GP2                                                         ; lpm_ff                ; work         ;
+;          |lpm_ff:GP3|                            ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|lpm_ff:GP3                                                         ; lpm_ff                ; work         ;
+;          |lpm_ff:GP4|                            ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|lpm_ff:GP4                                                         ; lpm_ff                ; work         ;
+;          |lpm_ff:GP5|                            ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|lpm_ff:GP5                                                         ; lpm_ff                ; work         ;
+;          |lpm_ff:RA|                             ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|lpm_ff:RA                                                          ; lpm_ff                ; work         ;
+;          |lpm_ff:SP|                             ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|lpm_ff:SP                                                          ; lpm_ff                ; work         ;
+;          |lpm_mux:MUX4A|                         ; 50 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|lpm_mux:MUX4A                                                      ; lpm_mux               ; work         ;
+;             |mux_nlc:auto_generated|             ; 50 (50)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|lpm_mux:MUX4A|mux_nlc:auto_generated                               ; mux_nlc               ; work         ;
+;    |pipelined_decoder:inst1|                     ; 17 (17)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|pipelined_decoder:inst1                                                                                                              ; pipelined_decoder     ; work         ;
+;    |reg_addr:reg_addr|                           ; 28 (28)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lma0|reg_addr:reg_addr                                                                                                                    ; reg_addr              ; work         ;
++--------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                     ;
++--------------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+-------+-----------------------+
+; Name                                                                                             ; Type ; Mode           ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size  ; MIF                   ;
++--------------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+-------+-----------------------+
+; TwoPortRWRAM:speedyRAM|altsyncram:altsyncram_component|altsyncram_ahq2:auto_generated|ALTSYNCRAM ; AUTO ; True Dual Port ; 4096         ; 16           ; 4096         ; 16           ; 65536 ; ../../../lcg_test.mif ;
++--------------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+-------+-----------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 182   ;
+; Number of registers using Synchronous Clear  ; 32    ;
+; Number of registers using Synchronous Load   ; 96    ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 156   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                                                                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |lma0|pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|lpm_ff:GP1|dffs[11]                                                                     ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; No         ; |lma0|busmux:instrSel_Mux|lpm_mux:$00000|mux_alc:auto_generated|l1_w2_n0_mux_dataout                                                                            ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |lma0|pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|busmux_4:mux4|busmux:inst2|lpm_mux:$00000|mux_flc:auto_generated|l1_w5_n0_mux_dataout ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |lma0|pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|busmux:GP2_datasel|lpm_mux:$00000|mux_flc:auto_generated|l1_w8_n0_mux_dataout           ;
+; 6:1                ; 16 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |lma0|pipelined_ALU_regfile:inst8|busmux:bit_select|lpm_mux:$00000|mux_flc:auto_generated|l1_w15_n0_mux_dataout                                                 ;
+; 7:1                ; 16 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |lma0|pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|lpm_mux:MUX4A|mux_nlc:auto_generated|l3_w3_n0_mux_dataout                               ;
+; 33:1               ; 5 bits    ; 110 LEs       ; 10 LEs               ; 100 LEs                ; No         ; |lma0|reg_addr:reg_addr|Selector0                                                                                                                               ;
+; 33:1               ; 4 bits    ; 88 LEs        ; 8 LEs                ; 80 LEs                 ; No         ; |lma0|reg_addr:reg_addr|Selector6                                                                                                                               ;
+; 64:1               ; 6 bits    ; 252 LEs       ; 12 LEs               ; 240 LEs                ; No         ; |lma0|reg_addr:reg_addr|Selector15                                                                                                                              ;
+; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |lma0|pipelined_ALU_regfile:inst8|busmux:Rs_GFR|lpm_mux:$00000|mux_flc:auto_generated|l1_w15_n0_mux_dataout                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Source assignments for TwoPortRWRAM:speedyRAM|altsyncram:altsyncram_component|altsyncram_ahq2:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                             ;
++---------------------------------+--------------------+------+------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                              ;
++---------------------------------+--------------------+------+------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|LPM_DFF:Carry_DFF ;
++------------------------+-----------+-------------------------------------------------------+
+; Parameter Name         ; Value     ; Type                                                  ;
++------------------------+-----------+-------------------------------------------------------+
+; LPM_WIDTH              ; 1         ; Untyped                                               ;
+; LPM_AVALUE             ; 0         ; Untyped                                               ;
+; LPM_SVALUE             ; 0         ; Untyped                                               ;
+; DEVICE_FAMILY          ; Cyclone V ; Untyped                                               ;
+; AUTO_CARRY_CHAINS      ; ON        ; AUTO_CARRY                                            ;
+; IGNORE_CARRY_BUFFERS   ; OFF       ; IGNORE_CARRY                                          ;
+; AUTO_CASCADE_CHAINS    ; ON        ; AUTO_CASCADE                                          ;
+; IGNORE_CASCADE_BUFFERS ; OFF       ; IGNORE_CASCADE                                        ;
++------------------------+-----------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|BUSMUX:reg_offset ;
++----------------+-------+-------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                              ;
++----------------+-------+-------------------------------------------------------------------+
+; WIDTH          ; 16    ; Untyped                                                           ;
++----------------+-------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|BUSMUX:add_mov ;
++----------------+-------+----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                           ;
++----------------+-------+----------------------------------------------------------------+
+; WIDTH          ; 16    ; Untyped                                                        ;
++----------------+-------+----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|BUSMUX:Rd_GFR ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; WIDTH          ; 16    ; Untyped                                                       ;
++----------------+-------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|LPM_DECODE:r0demux8 ;
++------------------------+------------+----------------------------------------------------------------------------------------------+
+; Parameter Name         ; Value      ; Type                                                                                         ;
++------------------------+------------+----------------------------------------------------------------------------------------------+
+; LPM_WIDTH              ; 3          ; Untyped                                                                                      ;
+; LPM_DECODES            ; 8          ; Untyped                                                                                      ;
+; LPM_PIPELINE           ; 0          ; Untyped                                                                                      ;
+; CASCADE_CHAIN          ; MANUAL     ; Untyped                                                                                      ;
+; DEVICE_FAMILY          ; Cyclone V  ; Untyped                                                                                      ;
+; CBXI_PARAMETER         ; decode_7of ; Untyped                                                                                      ;
+; AUTO_CARRY_CHAINS      ; ON         ; AUTO_CARRY                                                                                   ;
+; IGNORE_CARRY_BUFFERS   ; OFF        ; IGNORE_CARRY                                                                                 ;
+; AUTO_CASCADE_CHAINS    ; ON         ; AUTO_CASCADE                                                                                 ;
+; IGNORE_CASCADE_BUFFERS ; OFF        ; IGNORE_CASCADE                                                                               ;
++------------------------+------------+----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|LPM_DECODE:r1demux ;
++------------------------+------------+---------------------------------------------------------------------------------------------+
+; Parameter Name         ; Value      ; Type                                                                                        ;
++------------------------+------------+---------------------------------------------------------------------------------------------+
+; LPM_WIDTH              ; 3          ; Untyped                                                                                     ;
+; LPM_DECODES            ; 8          ; Untyped                                                                                     ;
+; LPM_PIPELINE           ; 0          ; Untyped                                                                                     ;
+; CASCADE_CHAIN          ; MANUAL     ; Untyped                                                                                     ;
+; DEVICE_FAMILY          ; Cyclone V  ; Untyped                                                                                     ;
+; CBXI_PARAMETER         ; decode_7of ; Untyped                                                                                     ;
+; AUTO_CARRY_CHAINS      ; ON         ; AUTO_CARRY                                                                                  ;
+; IGNORE_CARRY_BUFFERS   ; OFF        ; IGNORE_CARRY                                                                                ;
+; AUTO_CASCADE_CHAINS    ; ON         ; AUTO_CASCADE                                                                                ;
+; IGNORE_CASCADE_BUFFERS ; OFF        ; IGNORE_CASCADE                                                                              ;
++------------------------+------------+---------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|BUSMUX:GP2_datasel ;
++----------------+-------+----------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                     ;
++----------------+-------+----------------------------------------------------------------------------------------------------------+
+; WIDTH          ; 16    ; Untyped                                                                                                  ;
++----------------+-------+----------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|BUSMUX:GP2_datasel2 ;
++----------------+-------+-----------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                      ;
++----------------+-------+-----------------------------------------------------------------------------------------------------------+
+; WIDTH          ; 16    ; Untyped                                                                                                   ;
++----------------+-------+-----------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|lpm_mux:MUX4A ;
++------------------------+-----------+-----------------------------------------------------------------------------------------+
+; Parameter Name         ; Value     ; Type                                                                                    ;
++------------------------+-----------+-----------------------------------------------------------------------------------------+
+; AUTO_CARRY_CHAINS      ; ON        ; AUTO_CARRY                                                                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF       ; IGNORE_CARRY                                                                            ;
+; AUTO_CASCADE_CHAINS    ; ON        ; AUTO_CASCADE                                                                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF       ; IGNORE_CASCADE                                                                          ;
+; LPM_WIDTH              ; 16        ; Untyped                                                                                 ;
+; LPM_SIZE               ; 8         ; Untyped                                                                                 ;
+; LPM_WIDTHS             ; 3         ; Untyped                                                                                 ;
+; LPM_PIPELINE           ; 0         ; Untyped                                                                                 ;
+; CBXI_PARAMETER         ; mux_nlc   ; Untyped                                                                                 ;
+; DEVICE_FAMILY          ; Cyclone V ; Untyped                                                                                 ;
++------------------------+-----------+-----------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|LPM_FF:GP1 ;
++------------------------+-----------+--------------------------------------------------------------------------------------+
+; Parameter Name         ; Value     ; Type                                                                                 ;
++------------------------+-----------+--------------------------------------------------------------------------------------+
+; LPM_WIDTH              ; 16        ; Untyped                                                                              ;
+; LPM_AVALUE             ; UNUSED    ; Untyped                                                                              ;
+; LPM_SVALUE             ; UNUSED    ; Untyped                                                                              ;
+; LPM_FFTYPE             ; DFF       ; Untyped                                                                              ;
+; DEVICE_FAMILY          ; Cyclone V ; Untyped                                                                              ;
+; CBXI_PARAMETER         ; NOTHING   ; Untyped                                                                              ;
+; AUTO_CARRY_CHAINS      ; ON        ; AUTO_CARRY                                                                           ;
+; IGNORE_CARRY_BUFFERS   ; OFF       ; IGNORE_CARRY                                                                         ;
+; AUTO_CASCADE_CHAINS    ; ON        ; AUTO_CASCADE                                                                         ;
+; IGNORE_CASCADE_BUFFERS ; OFF       ; IGNORE_CASCADE                                                                       ;
++------------------------+-----------+--------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|BUSMUX:GP1_datasel ;
++----------------+-------+----------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                     ;
++----------------+-------+----------------------------------------------------------------------------------------------------------+
+; WIDTH          ; 16    ; Untyped                                                                                                  ;
++----------------+-------+----------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|BUSMUX:GP1_datasel2 ;
++----------------+-------+-----------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                      ;
++----------------+-------+-----------------------------------------------------------------------------------------------------------+
+; WIDTH          ; 16    ; Untyped                                                                                                   ;
++----------------+-------+-----------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|LPM_FF:GP2 ;
++------------------------+-----------+--------------------------------------------------------------------------------------+
+; Parameter Name         ; Value     ; Type                                                                                 ;
++------------------------+-----------+--------------------------------------------------------------------------------------+
+; LPM_WIDTH              ; 16        ; Untyped                                                                              ;
+; LPM_AVALUE             ; UNUSED    ; Untyped                                                                              ;
+; LPM_SVALUE             ; UNUSED    ; Untyped                                                                              ;
+; LPM_FFTYPE             ; DFF       ; Untyped                                                                              ;
+; DEVICE_FAMILY          ; Cyclone V ; Untyped                                                                              ;
+; CBXI_PARAMETER         ; NOTHING   ; Untyped                                                                              ;
+; AUTO_CARRY_CHAINS      ; ON        ; AUTO_CARRY                                                                           ;
+; IGNORE_CARRY_BUFFERS   ; OFF       ; IGNORE_CARRY                                                                         ;
+; AUTO_CASCADE_CHAINS    ; ON        ; AUTO_CASCADE                                                                         ;
+; IGNORE_CASCADE_BUFFERS ; OFF       ; IGNORE_CASCADE                                                                       ;
++------------------------+-----------+--------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|LPM_FF:GP3 ;
++------------------------+-----------+--------------------------------------------------------------------------------------+
+; Parameter Name         ; Value     ; Type                                                                                 ;
++------------------------+-----------+--------------------------------------------------------------------------------------+
+; LPM_WIDTH              ; 16        ; Untyped                                                                              ;
+; LPM_AVALUE             ; UNUSED    ; Untyped                                                                              ;
+; LPM_SVALUE             ; UNUSED    ; Untyped                                                                              ;
+; LPM_FFTYPE             ; DFF       ; Untyped                                                                              ;
+; DEVICE_FAMILY          ; Cyclone V ; Untyped                                                                              ;
+; CBXI_PARAMETER         ; NOTHING   ; Untyped                                                                              ;
+; AUTO_CARRY_CHAINS      ; ON        ; AUTO_CARRY                                                                           ;
+; IGNORE_CARRY_BUFFERS   ; OFF       ; IGNORE_CARRY                                                                         ;
+; AUTO_CASCADE_CHAINS    ; ON        ; AUTO_CASCADE                                                                         ;
+; IGNORE_CASCADE_BUFFERS ; OFF       ; IGNORE_CASCADE                                                                       ;
++------------------------+-----------+--------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|BUSMUX:GP3_datasel ;
++----------------+-------+----------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                     ;
++----------------+-------+----------------------------------------------------------------------------------------------------------+
+; WIDTH          ; 16    ; Untyped                                                                                                  ;
++----------------+-------+----------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|LPM_FF:GP4 ;
++------------------------+-----------+--------------------------------------------------------------------------------------+
+; Parameter Name         ; Value     ; Type                                                                                 ;
++------------------------+-----------+--------------------------------------------------------------------------------------+
+; LPM_WIDTH              ; 16        ; Untyped                                                                              ;
+; LPM_AVALUE             ; UNUSED    ; Untyped                                                                              ;
+; LPM_SVALUE             ; UNUSED    ; Untyped                                                                              ;
+; LPM_FFTYPE             ; DFF       ; Untyped                                                                              ;
+; DEVICE_FAMILY          ; Cyclone V ; Untyped                                                                              ;
+; CBXI_PARAMETER         ; NOTHING   ; Untyped                                                                              ;
+; AUTO_CARRY_CHAINS      ; ON        ; AUTO_CARRY                                                                           ;
+; IGNORE_CARRY_BUFFERS   ; OFF       ; IGNORE_CARRY                                                                         ;
+; AUTO_CASCADE_CHAINS    ; ON        ; AUTO_CASCADE                                                                         ;
+; IGNORE_CASCADE_BUFFERS ; OFF       ; IGNORE_CASCADE                                                                       ;
++------------------------+-----------+--------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|BUSMUX:GP4_datasel ;
++----------------+-------+----------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                     ;
++----------------+-------+----------------------------------------------------------------------------------------------------------+
+; WIDTH          ; 16    ; Untyped                                                                                                  ;
++----------------+-------+----------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|LPM_FF:GP5 ;
++------------------------+-----------+--------------------------------------------------------------------------------------+
+; Parameter Name         ; Value     ; Type                                                                                 ;
++------------------------+-----------+--------------------------------------------------------------------------------------+
+; LPM_WIDTH              ; 16        ; Untyped                                                                              ;
+; LPM_AVALUE             ; UNUSED    ; Untyped                                                                              ;
+; LPM_SVALUE             ; UNUSED    ; Untyped                                                                              ;
+; LPM_FFTYPE             ; DFF       ; Untyped                                                                              ;
+; DEVICE_FAMILY          ; Cyclone V ; Untyped                                                                              ;
+; CBXI_PARAMETER         ; NOTHING   ; Untyped                                                                              ;
+; AUTO_CARRY_CHAINS      ; ON        ; AUTO_CARRY                                                                           ;
+; IGNORE_CARRY_BUFFERS   ; OFF       ; IGNORE_CARRY                                                                         ;
+; AUTO_CASCADE_CHAINS    ; ON        ; AUTO_CASCADE                                                                         ;
+; IGNORE_CASCADE_BUFFERS ; OFF       ; IGNORE_CASCADE                                                                       ;
++------------------------+-----------+--------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|BUSMUX:GP5_datasel ;
++----------------+-------+----------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                     ;
++----------------+-------+----------------------------------------------------------------------------------------------------------+
+; WIDTH          ; 16    ; Untyped                                                                                                  ;
++----------------+-------+----------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|LPM_FF:SP ;
++------------------------+-----------+-------------------------------------------------------------------------------------+
+; Parameter Name         ; Value     ; Type                                                                                ;
++------------------------+-----------+-------------------------------------------------------------------------------------+
+; LPM_WIDTH              ; 16        ; Untyped                                                                             ;
+; LPM_AVALUE             ; UNUSED    ; Untyped                                                                             ;
+; LPM_SVALUE             ; UNUSED    ; Untyped                                                                             ;
+; LPM_FFTYPE             ; DFF       ; Untyped                                                                             ;
+; DEVICE_FAMILY          ; Cyclone V ; Untyped                                                                             ;
+; CBXI_PARAMETER         ; NOTHING   ; Untyped                                                                             ;
+; AUTO_CARRY_CHAINS      ; ON        ; AUTO_CARRY                                                                          ;
+; IGNORE_CARRY_BUFFERS   ; OFF       ; IGNORE_CARRY                                                                        ;
+; AUTO_CASCADE_CHAINS    ; ON        ; AUTO_CASCADE                                                                        ;
+; IGNORE_CASCADE_BUFFERS ; OFF       ; IGNORE_CASCADE                                                                      ;
++------------------------+-----------+-------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|BUSMUX:GP3_datasel6 ;
++----------------+-------+-----------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                      ;
++----------------+-------+-----------------------------------------------------------------------------------------------------------+
+; WIDTH          ; 16    ; Untyped                                                                                                   ;
++----------------+-------+-----------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|LPM_FF:RA ;
++------------------------+-----------+-------------------------------------------------------------------------------------+
+; Parameter Name         ; Value     ; Type                                                                                ;
++------------------------+-----------+-------------------------------------------------------------------------------------+
+; LPM_WIDTH              ; 16        ; Untyped                                                                             ;
+; LPM_AVALUE             ; UNUSED    ; Untyped                                                                             ;
+; LPM_SVALUE             ; UNUSED    ; Untyped                                                                             ;
+; LPM_FFTYPE             ; DFF       ; Untyped                                                                             ;
+; DEVICE_FAMILY          ; Cyclone V ; Untyped                                                                             ;
+; CBXI_PARAMETER         ; NOTHING   ; Untyped                                                                             ;
+; AUTO_CARRY_CHAINS      ; ON        ; AUTO_CARRY                                                                          ;
+; IGNORE_CARRY_BUFFERS   ; OFF       ; IGNORE_CARRY                                                                        ;
+; AUTO_CASCADE_CHAINS    ; ON        ; AUTO_CASCADE                                                                        ;
+; IGNORE_CASCADE_BUFFERS ; OFF       ; IGNORE_CASCADE                                                                      ;
++------------------------+-----------+-------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|BUSMUX:RA_datasel ;
++----------------+-------+---------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                    ;
++----------------+-------+---------------------------------------------------------------------------------------------------------+
+; WIDTH          ; 16    ; Untyped                                                                                                 ;
++----------------+-------+---------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|lpm_mux:MUX4B ;
++------------------------+-----------+-----------------------------------------------------------------------------------------+
+; Parameter Name         ; Value     ; Type                                                                                    ;
++------------------------+-----------+-----------------------------------------------------------------------------------------+
+; AUTO_CARRY_CHAINS      ; ON        ; AUTO_CARRY                                                                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF       ; IGNORE_CARRY                                                                            ;
+; AUTO_CASCADE_CHAINS    ; ON        ; AUTO_CASCADE                                                                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF       ; IGNORE_CASCADE                                                                          ;
+; LPM_WIDTH              ; 16        ; Untyped                                                                                 ;
+; LPM_SIZE               ; 8         ; Untyped                                                                                 ;
+; LPM_WIDTHS             ; 3         ; Untyped                                                                                 ;
+; LPM_PIPELINE           ; 0         ; Untyped                                                                                 ;
+; CBXI_PARAMETER         ; mux_nlc   ; Untyped                                                                                 ;
+; DEVICE_FAMILY          ; Cyclone V ; Untyped                                                                                 ;
++------------------------+-----------+-----------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|MAC_loop:inst2|BUSMUX:inst6 ;
++----------------+-------+-----------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                        ;
++----------------+-------+-----------------------------------------------------------------------------+
+; WIDTH          ; 1     ; Untyped                                                                     ;
++----------------+-------+-----------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|LPM_DFF:multStateDFF ;
++------------------------+-----------+--------------------------------------------------------------------------------------------------+
+; Parameter Name         ; Value     ; Type                                                                                             ;
++------------------------+-----------+--------------------------------------------------------------------------------------------------+
+; LPM_WIDTH              ; 2         ; Untyped                                                                                          ;
+; LPM_AVALUE             ; 0         ; Untyped                                                                                          ;
+; LPM_SVALUE             ; 0         ; Untyped                                                                                          ;
+; DEVICE_FAMILY          ; Cyclone V ; Untyped                                                                                          ;
+; AUTO_CARRY_CHAINS      ; ON        ; AUTO_CARRY                                                                                       ;
+; IGNORE_CARRY_BUFFERS   ; OFF       ; IGNORE_CARRY                                                                                     ;
+; AUTO_CASCADE_CHAINS    ; ON        ; AUTO_CASCADE                                                                                     ;
+; IGNORE_CASCADE_BUFFERS ; OFF       ; IGNORE_CASCADE                                                                                   ;
++------------------------+-----------+--------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|BUSMUX:inst19 ;
++----------------+-------+-------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                  ;
++----------------+-------+-------------------------------------------------------------------------------------------------------+
+; WIDTH          ; 16    ; Untyped                                                                                               ;
++----------------+-------+-------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|busmux_4:mux4|BUSMUX:inst3 ;
++----------------+-------+--------------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                               ;
++----------------+-------+--------------------------------------------------------------------------------------------------------------------+
+; WIDTH          ; 16    ; Untyped                                                                                                            ;
++----------------+-------+--------------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|busmux_4:mux4|BUSMUX:inst ;
++----------------+-------+-------------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                              ;
++----------------+-------+-------------------------------------------------------------------------------------------------------------------+
+; WIDTH          ; 16    ; Untyped                                                                                                           ;
++----------------+-------+-------------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|busmux_4:mux4|BUSMUX:inst2 ;
++----------------+-------+--------------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                               ;
++----------------+-------+--------------------------------------------------------------------------------------------------------------------+
+; WIDTH          ; 16    ; Untyped                                                                                                            ;
++----------------+-------+--------------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|LPM_FF:inst1 ;
++------------------------+-----------+--------------------------------------------------------------------------+
+; Parameter Name         ; Value     ; Type                                                                     ;
++------------------------+-----------+--------------------------------------------------------------------------+
+; LPM_WIDTH              ; 16        ; Untyped                                                                  ;
+; LPM_AVALUE             ; UNUSED    ; Untyped                                                                  ;
+; LPM_SVALUE             ; UNUSED    ; Untyped                                                                  ;
+; LPM_FFTYPE             ; DFF       ; Untyped                                                                  ;
+; DEVICE_FAMILY          ; Cyclone V ; Untyped                                                                  ;
+; CBXI_PARAMETER         ; NOTHING   ; Untyped                                                                  ;
+; AUTO_CARRY_CHAINS      ; ON        ; AUTO_CARRY                                                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF       ; IGNORE_CARRY                                                             ;
+; AUTO_CASCADE_CHAINS    ; ON        ; AUTO_CASCADE                                                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF       ; IGNORE_CASCADE                                                           ;
++------------------------+-----------+--------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|LPM_FF:inst4 ;
++------------------------+-----------+--------------------------------------------------------------------------+
+; Parameter Name         ; Value     ; Type                                                                     ;
++------------------------+-----------+--------------------------------------------------------------------------+
+; LPM_WIDTH              ; 16        ; Untyped                                                                  ;
+; LPM_AVALUE             ; UNUSED    ; Untyped                                                                  ;
+; LPM_SVALUE             ; UNUSED    ; Untyped                                                                  ;
+; LPM_FFTYPE             ; DFF       ; Untyped                                                                  ;
+; DEVICE_FAMILY          ; Cyclone V ; Untyped                                                                  ;
+; CBXI_PARAMETER         ; NOTHING   ; Untyped                                                                  ;
+; AUTO_CARRY_CHAINS      ; ON        ; AUTO_CARRY                                                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF       ; IGNORE_CARRY                                                             ;
+; AUTO_CASCADE_CHAINS    ; ON        ; AUTO_CASCADE                                                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF       ; IGNORE_CASCADE                                                           ;
++------------------------+-----------+--------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|BUSMUX:inst2 ;
++----------------+-------+--------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                 ;
++----------------+-------+--------------------------------------------------------------------------------------+
+; WIDTH          ; 16    ; Untyped                                                                              ;
++----------------+-------+--------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|MAC_loop:inst2|BUSMUX:inst4 ;
++----------------+-------+-----------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                        ;
++----------------+-------+-----------------------------------------------------------------------------+
+; WIDTH          ; 16    ; Untyped                                                                     ;
++----------------+-------+-----------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|LPM_DFF:Load_Status ;
++------------------------+-----------+---------------------------------------------------------+
+; Parameter Name         ; Value     ; Type                                                    ;
++------------------------+-----------+---------------------------------------------------------+
+; LPM_WIDTH              ; 1         ; Untyped                                                 ;
+; LPM_AVALUE             ; 0         ; Untyped                                                 ;
+; LPM_SVALUE             ; 0         ; Untyped                                                 ;
+; DEVICE_FAMILY          ; Cyclone V ; Untyped                                                 ;
+; AUTO_CARRY_CHAINS      ; ON        ; AUTO_CARRY                                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF       ; IGNORE_CARRY                                            ;
+; AUTO_CASCADE_CHAINS    ; ON        ; AUTO_CASCADE                                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF       ; IGNORE_CASCADE                                          ;
++------------------------+-----------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|BUSMUX:add_load ;
++----------------+-------+-----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                            ;
++----------------+-------+-----------------------------------------------------------------+
+; WIDTH          ; 16    ; Untyped                                                         ;
++----------------+-------+-----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|BUSMUX:bit_select ;
++----------------+-------+-------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                              ;
++----------------+-------+-------------------------------------------------------------------+
+; WIDTH          ; 16    ; Untyped                                                           ;
++----------------+-------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|BUSMUX:xsr_select ;
++----------------+-------+-------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                              ;
++----------------+-------+-------------------------------------------------------------------+
+; WIDTH          ; 16    ; Untyped                                                           ;
++----------------+-------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|BUSMUX:Rs_GFR ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; WIDTH          ; 16    ; Untyped                                                       ;
++----------------+-------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|LPM_DFF:Prev_Reg ;
++------------------------+-----------+------------------------------------------------------+
+; Parameter Name         ; Value     ; Type                                                 ;
++------------------------+-----------+------------------------------------------------------+
+; LPM_WIDTH              ; 3         ; Untyped                                              ;
+; LPM_AVALUE             ; 0         ; Untyped                                              ;
+; LPM_SVALUE             ; 0         ; Untyped                                              ;
+; DEVICE_FAMILY          ; Cyclone V ; Untyped                                              ;
+; AUTO_CARRY_CHAINS      ; ON        ; AUTO_CARRY                                           ;
+; IGNORE_CARRY_BUFFERS   ; OFF       ; IGNORE_CARRY                                         ;
+; AUTO_CASCADE_CHAINS    ; ON        ; AUTO_CASCADE                                         ;
+; IGNORE_CASCADE_BUFFERS ; OFF       ; IGNORE_CASCADE                                       ;
++------------------------+-----------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|BUSMUX:add_sub ;
++----------------+-------+----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                           ;
++----------------+-------+----------------------------------------------------------------+
+; WIDTH          ; 16    ; Untyped                                                        ;
++----------------+-------+----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|BUSMUX:reg_Im ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; WIDTH          ; 16    ; Untyped                                                       ;
++----------------+-------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|LPM_INV:invert ;
++----------------+-------+----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                           ;
++----------------+-------+----------------------------------------------------------------+
+; LPM_WIDTH      ; 16    ; Untyped                                                        ;
++----------------+-------+----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipelined_ALU_regfile:inst8|BUSMUX:alu_Read ;
++----------------+-------+-----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                            ;
++----------------+-------+-----------------------------------------------------------------+
+; WIDTH          ; 16    ; Untyped                                                         ;
++----------------+-------+-----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BUSMUX:ir_mux ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; WIDTH          ; 16    ; Untyped                           ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LPM_FF:loopff ;
++------------------------+-----------+-----------------------+
+; Parameter Name         ; Value     ; Type                  ;
++------------------------+-----------+-----------------------+
+; LPM_WIDTH              ; 1         ; Untyped               ;
+; LPM_AVALUE             ; UNUSED    ; Untyped               ;
+; LPM_SVALUE             ; UNUSED    ; Untyped               ;
+; LPM_FFTYPE             ; DFF       ; Untyped               ;
+; DEVICE_FAMILY          ; Cyclone V ; Untyped               ;
+; CBXI_PARAMETER         ; NOTHING   ; Untyped               ;
+; AUTO_CARRY_CHAINS      ; ON        ; AUTO_CARRY            ;
+; IGNORE_CARRY_BUFFERS   ; OFF       ; IGNORE_CARRY          ;
+; AUTO_CASCADE_CHAINS    ; ON        ; AUTO_CASCADE          ;
+; IGNORE_CASCADE_BUFFERS ; OFF       ; IGNORE_CASCADE        ;
++------------------------+-----------+-----------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: TwoPortRWRAM:speedyRAM|altsyncram:altsyncram_component ;
++------------------------------------+-----------------------+----------------------------------------+
+; Parameter Name                     ; Value                 ; Type                                   ;
++------------------------------------+-----------------------+----------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                     ; Untyped                                ;
+; AUTO_CARRY_CHAINS                  ; ON                    ; AUTO_CARRY                             ;
+; IGNORE_CARRY_BUFFERS               ; OFF                   ; IGNORE_CARRY                           ;
+; AUTO_CASCADE_CHAINS                ; ON                    ; AUTO_CASCADE                           ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                   ; IGNORE_CASCADE                         ;
+; WIDTH_BYTEENA                      ; 1                     ; Untyped                                ;
+; OPERATION_MODE                     ; BIDIR_DUAL_PORT       ; Untyped                                ;
+; WIDTH_A                            ; 16                    ; Signed Integer                         ;
+; WIDTHAD_A                          ; 12                    ; Signed Integer                         ;
+; NUMWORDS_A                         ; 4096                  ; Signed Integer                         ;
+; OUTDATA_REG_A                      ; UNREGISTERED          ; Untyped                                ;
+; ADDRESS_ACLR_A                     ; NONE                  ; Untyped                                ;
+; OUTDATA_ACLR_A                     ; NONE                  ; Untyped                                ;
+; WRCONTROL_ACLR_A                   ; NONE                  ; Untyped                                ;
+; INDATA_ACLR_A                      ; NONE                  ; Untyped                                ;
+; BYTEENA_ACLR_A                     ; NONE                  ; Untyped                                ;
+; WIDTH_B                            ; 16                    ; Signed Integer                         ;
+; WIDTHAD_B                          ; 12                    ; Signed Integer                         ;
+; NUMWORDS_B                         ; 4096                  ; Signed Integer                         ;
+; INDATA_REG_B                       ; CLOCK0                ; Untyped                                ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK0                ; Untyped                                ;
+; RDCONTROL_REG_B                    ; CLOCK1                ; Untyped                                ;
+; ADDRESS_REG_B                      ; CLOCK0                ; Untyped                                ;
+; OUTDATA_REG_B                      ; UNREGISTERED          ; Untyped                                ;
+; BYTEENA_REG_B                      ; CLOCK1                ; Untyped                                ;
+; INDATA_ACLR_B                      ; NONE                  ; Untyped                                ;
+; WRCONTROL_ACLR_B                   ; NONE                  ; Untyped                                ;
+; ADDRESS_ACLR_B                     ; NONE                  ; Untyped                                ;
+; OUTDATA_ACLR_B                     ; NONE                  ; Untyped                                ;
+; RDCONTROL_ACLR_B                   ; NONE                  ; Untyped                                ;
+; BYTEENA_ACLR_B                     ; NONE                  ; Untyped                                ;
+; WIDTH_BYTEENA_A                    ; 1                     ; Signed Integer                         ;
+; WIDTH_BYTEENA_B                    ; 1                     ; Signed Integer                         ;
+; RAM_BLOCK_TYPE                     ; AUTO                  ; Untyped                                ;
+; BYTE_SIZE                          ; 8                     ; Untyped                                ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE             ; Untyped                                ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ  ; Untyped                                ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ  ; Untyped                                ;
+; INIT_FILE                          ; ../../../lcg_test.mif ; Untyped                                ;
+; INIT_FILE_LAYOUT                   ; PORT_A                ; Untyped                                ;
+; MAXIMUM_DEPTH                      ; 0                     ; Untyped                                ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS                ; Untyped                                ;
+; CLOCK_ENABLE_INPUT_B               ; BYPASS                ; Untyped                                ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS                ; Untyped                                ;
+; CLOCK_ENABLE_OUTPUT_B              ; BYPASS                ; Untyped                                ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN       ; Untyped                                ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN       ; Untyped                                ;
+; ENABLE_ECC                         ; FALSE                 ; Untyped                                ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                 ; Untyped                                ;
+; WIDTH_ECCSTATUS                    ; 3                     ; Untyped                                ;
+; DEVICE_FAMILY                      ; Cyclone V             ; Untyped                                ;
+; CBXI_PARAMETER                     ; altsyncram_ahq2       ; Untyped                                ;
++------------------------------------+-----------------------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BUSMUX:instrSel_Mux ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; WIDTH          ; 11    ; Untyped                                 ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LPM_FF:PC_2 ;
++------------------------+-----------+---------------------+
+; Parameter Name         ; Value     ; Type                ;
++------------------------+-----------+---------------------+
+; LPM_WIDTH              ; 11        ; Untyped             ;
+; LPM_AVALUE             ; UNUSED    ; Untyped             ;
+; LPM_SVALUE             ; UNUSED    ; Untyped             ;
+; LPM_FFTYPE             ; DFF       ; Untyped             ;
+; DEVICE_FAMILY          ; Cyclone V ; Untyped             ;
+; CBXI_PARAMETER         ; NOTHING   ; Untyped             ;
+; AUTO_CARRY_CHAINS      ; ON        ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS   ; OFF       ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS    ; ON        ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS ; OFF       ; IGNORE_CASCADE      ;
++------------------------+-----------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LPM_ADD_SUB:inst3 ;
++------------------------+-------------+-------------------------+
+; Parameter Name         ; Value       ; Type                    ;
++------------------------+-------------+-------------------------+
+; LPM_WIDTH              ; 11          ; Untyped                 ;
+; LPM_REPRESENTATION     ; SIGNED      ; Untyped                 ;
+; LPM_DIRECTION          ; DEFAULT     ; Untyped                 ;
+; ONE_INPUT_IS_CONSTANT  ; NO          ; Untyped                 ;
+; LPM_PIPELINE           ; 0           ; Untyped                 ;
+; MAXIMIZE_SPEED         ; 5           ; Untyped                 ;
+; REGISTERED_AT_END      ; 0           ; Untyped                 ;
+; OPTIMIZE_FOR_SPEED     ; 5           ; Untyped                 ;
+; USE_CS_BUFFERS         ; 1           ; Untyped                 ;
+; CARRY_CHAIN            ; MANUAL      ; Untyped                 ;
+; CARRY_CHAIN_LENGTH     ; 48          ; CARRY_CHAIN_LENGTH      ;
+; DEVICE_FAMILY          ; Cyclone V   ; Untyped                 ;
+; USE_WYS                ; OFF         ; Untyped                 ;
+; STYLE                  ; FAST        ; Untyped                 ;
+; CBXI_PARAMETER         ; add_sub_v0b ; Untyped                 ;
+; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY              ;
+; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY            ;
+; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE            ;
+; IGNORE_CASCADE_BUFFERS ; OFF         ; IGNORE_CASCADE          ;
++------------------------+-------------+-------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BUSMUX:pc_InstrReg5 ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; WIDTH          ; 11    ; Untyped                                 ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BUSMUX:pc_InstrReg ;
++----------------+-------+----------------------------------------+
+; Parameter Name ; Value ; Type                                   ;
++----------------+-------+----------------------------------------+
+; WIDTH          ; 11    ; Untyped                                ;
++----------------+-------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BUSMUX:dataSel_Mux ;
++----------------+-------+----------------------------------------+
+; Parameter Name ; Value ; Type                                   ;
++----------------+-------+----------------------------------------+
+; WIDTH          ; 12    ; Untyped                                ;
++----------------+-------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LPM_FF:IR ;
++------------------------+-----------+-------------------+
+; Parameter Name         ; Value     ; Type              ;
++------------------------+-----------+-------------------+
+; LPM_WIDTH              ; 16        ; Untyped           ;
+; LPM_AVALUE             ; UNUSED    ; Untyped           ;
+; LPM_SVALUE             ; UNUSED    ; Untyped           ;
+; LPM_FFTYPE             ; DFF       ; Untyped           ;
+; DEVICE_FAMILY          ; Cyclone V ; Untyped           ;
+; CBXI_PARAMETER         ; NOTHING   ; Untyped           ;
+; AUTO_CARRY_CHAINS      ; ON        ; AUTO_CARRY        ;
+; IGNORE_CARRY_BUFFERS   ; OFF       ; IGNORE_CARRY      ;
+; AUTO_CASCADE_CHAINS    ; ON        ; AUTO_CASCADE      ;
+; IGNORE_CASCADE_BUFFERS ; OFF       ; IGNORE_CASCADE    ;
++------------------------+-----------+-------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                   ;
++-------------------------------------------+--------------------------------------------------------+
+; Name                                      ; Value                                                  ;
++-------------------------------------------+--------------------------------------------------------+
+; Number of entity instances                ; 1                                                      ;
+; Entity Instance                           ; TwoPortRWRAM:speedyRAM|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; BIDIR_DUAL_PORT                                        ;
+;     -- WIDTH_A                            ; 16                                                     ;
+;     -- NUMWORDS_A                         ; 4096                                                   ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                           ;
+;     -- WIDTH_B                            ; 16                                                     ;
+;     -- NUMWORDS_B                         ; 4096                                                   ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                                 ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                           ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                   ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                              ;
++-------------------------------------------+--------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 182                         ;
+;     ENA               ; 44                          ;
+;     ENA SCLR          ; 32                          ;
+;     ENA SLD           ; 80                          ;
+;     SLD               ; 16                          ;
+;     plain             ; 10                          ;
+; arriav_lcell_comb     ; 688                         ;
+;     arith             ; 115                         ;
+;         0 data inputs ; 8                           ;
+;         1 data inputs ; 8                           ;
+;         2 data inputs ; 37                          ;
+;         4 data inputs ; 14                          ;
+;         5 data inputs ; 48                          ;
+;     extend            ; 1                           ;
+;         7 data inputs ; 1                           ;
+;     normal            ; 522                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 33                          ;
+;         3 data inputs ; 98                          ;
+;         4 data inputs ; 91                          ;
+;         5 data inputs ; 107                         ;
+;         6 data inputs ; 191                         ;
+;     shared            ; 50                          ;
+;         0 data inputs ; 2                           ;
+;         2 data inputs ; 18                          ;
+;         3 data inputs ; 8                           ;
+;         4 data inputs ; 22                          ;
+; boundary_port         ; 254                         ;
+; stratixv_ram_block    ; 16                          ;
+;                       ;                             ;
+; Max LUT depth         ; 12.00                       ;
+; Average LUT depth     ; 9.38                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:02     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+    Info: Processing started: Wed Jun 10 22:37:06 2020
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lma0 -c lma0_v4
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file lma0.bdf
+    Info (12023): Found entity 1: lma0
+Info (12127): Elaborating entity "lma0" for the top level hierarchy
+Warning (12125): Using design file pipelined_decoder.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: pipelined_decoder File: C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/pipelined_decoder.v Line: 2
+Info (12128): Elaborating entity "pipelined_decoder" for hierarchy "pipelined_decoder:inst1"
+Warning (12125): Using design file eqmi.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: EQMI File: C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/eqmi.v Line: 1
+Info (12128): Elaborating entity "EQMI" for hierarchy "EQMI:EQMI"
+Warning (12125): Using design file pipelined_alu_regfile.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: pipelined_ALU_regfile
+Info (12128): Elaborating entity "pipelined_ALU_regfile" for hierarchy "pipelined_ALU_regfile:inst8"
+Warning (12125): Using design file pipelined_alu_decoder.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: pipelined_ALU_decoder File: C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/pipelined_alu_decoder.v Line: 1
+Info (12128): Elaborating entity "pipelined_ALU_decoder" for hierarchy "pipelined_ALU_regfile:inst8|pipelined_ALU_decoder:inst"
+Info (12128): Elaborating entity "LPM_DFF" for hierarchy "pipelined_ALU_regfile:inst8|LPM_DFF:Carry_DFF"
+Info (12130): Elaborated megafunction instantiation "pipelined_ALU_regfile:inst8|LPM_DFF:Carry_DFF"
+Info (12133): Instantiated megafunction "pipelined_ALU_regfile:inst8|LPM_DFF:Carry_DFF" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTH" = "1"
+Warning (12125): Using design file addcincout.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: addcincout File: C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/addcincout.v Line: 1
+Info (12128): Elaborating entity "addcincout" for hierarchy "pipelined_ALU_regfile:inst8|addcincout:inst3"
+Info (12128): Elaborating entity "BUSMUX" for hierarchy "pipelined_ALU_regfile:inst8|BUSMUX:reg_offset"
+Info (12130): Elaborated megafunction instantiation "pipelined_ALU_regfile:inst8|BUSMUX:reg_offset"
+Info (12133): Instantiated megafunction "pipelined_ALU_regfile:inst8|BUSMUX:reg_offset" with the following parameter:
+    Info (12134): Parameter "WIDTH" = "16"
+Info (12128): Elaborating entity "lpm_mux" for hierarchy "pipelined_ALU_regfile:inst8|BUSMUX:reg_offset|lpm_mux:$00000" File: c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/busmux.tdf Line: 44
+Info (12131): Elaborated megafunction instantiation "pipelined_ALU_regfile:inst8|BUSMUX:reg_offset|lpm_mux:$00000", which is child of megafunction instantiation "pipelined_ALU_regfile:inst8|BUSMUX:reg_offset" File: c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/busmux.tdf Line: 44
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_flc.tdf
+    Info (12023): Found entity 1: mux_flc File: C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/db/mux_flc.tdf Line: 23
+Info (12128): Elaborating entity "mux_flc" for hierarchy "pipelined_ALU_regfile:inst8|BUSMUX:reg_offset|lpm_mux:$00000|mux_flc:auto_generated" File: c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/lpm_mux.tdf Line: 87
+Info (12128): Elaborating entity "BUSMUX" for hierarchy "pipelined_ALU_regfile:inst8|BUSMUX:add_mov"
+Info (12130): Elaborated megafunction instantiation "pipelined_ALU_regfile:inst8|BUSMUX:add_mov"
+Info (12133): Instantiated megafunction "pipelined_ALU_regfile:inst8|BUSMUX:add_mov" with the following parameter:
+    Info (12134): Parameter "WIDTH" = "16"
+Warning (12125): Using design file regfile_8_twoport_3.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: regfile_8_twoport_3
+Info (12128): Elaborating entity "regfile_8_twoport_3" for hierarchy "pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport"
+Info (12128): Elaborating entity "LPM_DECODE" for hierarchy "pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|LPM_DECODE:r0demux8"
+Info (12130): Elaborated megafunction instantiation "pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|LPM_DECODE:r0demux8"
+Info (12133): Instantiated megafunction "pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|LPM_DECODE:r0demux8" with the following parameter:
+    Info (12134): Parameter "LPM_DECODES" = "8"
+    Info (12134): Parameter "LPM_WIDTH" = "3"
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_7of.tdf
+    Info (12023): Found entity 1: decode_7of File: C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/db/decode_7of.tdf Line: 23
+Info (12128): Elaborating entity "decode_7of" for hierarchy "pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|LPM_DECODE:r0demux8|decode_7of:auto_generated" File: c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/lpm_decode.tdf Line: 77
+Info (12128): Elaborating entity "lpm_mux" for hierarchy "pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|lpm_mux:MUX4A"
+Info (12130): Elaborated megafunction instantiation "pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|lpm_mux:MUX4A"
+Info (12133): Instantiated megafunction "pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|lpm_mux:MUX4A" with the following parameter:
+    Info (12134): Parameter "LPM_SIZE" = "8"
+    Info (12134): Parameter "LPM_WIDTH" = "16"
+    Info (12134): Parameter "LPM_WIDTHS" = "3"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_nlc.tdf
+    Info (12023): Found entity 1: mux_nlc File: C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/db/mux_nlc.tdf Line: 23
+Info (12128): Elaborating entity "mux_nlc" for hierarchy "pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|lpm_mux:MUX4A|mux_nlc:auto_generated" File: c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/lpm_mux.tdf Line: 87
+Info (12128): Elaborating entity "LPM_FF" for hierarchy "pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|LPM_FF:GP1"
+Info (12130): Elaborated megafunction instantiation "pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|LPM_FF:GP1"
+Info (12133): Instantiated megafunction "pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|LPM_FF:GP1" with the following parameter:
+    Info (12134): Parameter "LPM_FFTYPE" = "DFF"
+    Info (12134): Parameter "LPM_WIDTH" = "16"
+Info (12128): Elaborating entity "LPM_FF" for hierarchy "pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|LPM_FF:GP2"
+Info (12130): Elaborated megafunction instantiation "pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|LPM_FF:GP2"
+Info (12133): Instantiated megafunction "pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|LPM_FF:GP2" with the following parameter:
+    Info (12134): Parameter "LPM_FFTYPE" = "DFF"
+    Info (12134): Parameter "LPM_WIDTH" = "16"
+Info (12128): Elaborating entity "LPM_FF" for hierarchy "pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|LPM_FF:GP3"
+Info (12130): Elaborated megafunction instantiation "pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|LPM_FF:GP3"
+Info (12133): Instantiated megafunction "pipelined_ALU_regfile:inst8|regfile_8_twoport_3:regfile_8_twoport|LPM_FF:GP3" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTH" = "16"
+Warning (12125): Using design file mac_loop.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: MAC_loop
+Info (12128): Elaborating entity "MAC_loop" for hierarchy "pipelined_ALU_regfile:inst8|MAC_loop:inst2"
+Info (12128): Elaborating entity "BUSMUX" for hierarchy "pipelined_ALU_regfile:inst8|MAC_loop:inst2|BUSMUX:inst6"
+Info (12130): Elaborated megafunction instantiation "pipelined_ALU_regfile:inst8|MAC_loop:inst2|BUSMUX:inst6"
+Info (12133): Instantiated megafunction "pipelined_ALU_regfile:inst8|MAC_loop:inst2|BUSMUX:inst6" with the following parameter:
+    Info (12134): Parameter "WIDTH" = "1"
+Info (12128): Elaborating entity "lpm_mux" for hierarchy "pipelined_ALU_regfile:inst8|MAC_loop:inst2|BUSMUX:inst6|lpm_mux:$00000" File: c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/busmux.tdf Line: 44
+Info (12131): Elaborated megafunction instantiation "pipelined_ALU_regfile:inst8|MAC_loop:inst2|BUSMUX:inst6|lpm_mux:$00000", which is child of megafunction instantiation "pipelined_ALU_regfile:inst8|MAC_loop:inst2|BUSMUX:inst6" File: c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/busmux.tdf Line: 44
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_pjc.tdf
+    Info (12023): Found entity 1: mux_pjc File: C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/db/mux_pjc.tdf Line: 23
+Info (12128): Elaborating entity "mux_pjc" for hierarchy "pipelined_ALU_regfile:inst8|MAC_loop:inst2|BUSMUX:inst6|lpm_mux:$00000|mux_pjc:auto_generated" File: c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/lpm_mux.tdf Line: 87
+Warning (12125): Using design file ctrl_en_counter.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: ctrl_en_counter File: C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/ctrl_en_counter.v Line: 1
+Info (12128): Elaborating entity "ctrl_en_counter" for hierarchy "pipelined_ALU_regfile:inst8|MAC_loop:inst2|ctrl_en_counter:inst1"
+Warning (12125): Using design file mad.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: MAD
+Info (12128): Elaborating entity "MAD" for hierarchy "pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst"
+Warning (275011): Block or symbol "DFF" of instance "inst6" overlaps another block or symbol
+Warning (275085): Found inconsistent dimensions for element "MSB"
+Warning (275085): Found inconsistent dimensions for element "MSB"
+Warning (275080): Converted elements in bus name "MSB" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "MSB[15..0]" to "MSB15..0"
+Warning (12125): Using design file loop_mul.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: loop_mul
+Info (12128): Elaborating entity "loop_mul" for hierarchy "pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19"
+Warning (12125): Using design file sm.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: SM File: C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/sm.v Line: 1
+Info (12128): Elaborating entity "SM" for hierarchy "pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|SM:multStateMachine"
+Info (12128): Elaborating entity "LPM_DFF" for hierarchy "pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|LPM_DFF:multStateDFF"
+Info (12130): Elaborated megafunction instantiation "pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|LPM_DFF:multStateDFF"
+Info (12133): Instantiated megafunction "pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|LPM_DFF:multStateDFF" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTH" = "2"
+Warning (12125): Using design file shift.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: shift File: C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/shift.v Line: 1
+Info (12128): Elaborating entity "shift" for hierarchy "pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|shift:shift"
+Warning (12125): Using design file multiplier_8bit.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: multiplier_8bit
+Info (12128): Elaborating entity "multiplier_8bit" for hierarchy "pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|multiplier_8bit:8bit_mult"
+Warning (12125): Using design file add16.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: add16 File: C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/add16.v Line: 1
+Info (12128): Elaborating entity "add16" for hierarchy "pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|multiplier_8bit:8bit_mult|add16:inst11"
+Warning (12125): Using design file shift0_8bit.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: shift0_8bit File: C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/shift0_8bit.v Line: 1
+Info (12128): Elaborating entity "shift0_8bit" for hierarchy "pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|multiplier_8bit:8bit_mult|shift0_8bit:inst"
+Warning (12125): Using design file shift1_8bit.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: shift1_8bit File: C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/shift1_8bit.v Line: 1
+Info (12128): Elaborating entity "shift1_8bit" for hierarchy "pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|multiplier_8bit:8bit_mult|shift1_8bit:inst2"
+Warning (12125): Using design file shift2_8bit.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: shift2_8bit File: C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/shift2_8bit.v Line: 1
+Info (12128): Elaborating entity "shift2_8bit" for hierarchy "pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|multiplier_8bit:8bit_mult|shift2_8bit:inst3"
+Warning (12125): Using design file shift3_8bit.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: shift3_8bit File: C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/shift3_8bit.v Line: 1
+Info (12128): Elaborating entity "shift3_8bit" for hierarchy "pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|multiplier_8bit:8bit_mult|shift3_8bit:inst4"
+Warning (12125): Using design file shift4_8bit.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: shift4_8bit File: C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/shift4_8bit.v Line: 1
+Info (12128): Elaborating entity "shift4_8bit" for hierarchy "pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|multiplier_8bit:8bit_mult|shift4_8bit:inst5"
+Warning (12125): Using design file shift5_8bit.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: shift5_8bit File: C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/shift5_8bit.v Line: 1
+Info (12128): Elaborating entity "shift5_8bit" for hierarchy "pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|multiplier_8bit:8bit_mult|shift5_8bit:inst6"
+Warning (12125): Using design file shift6_8bit.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: shift6_8bit File: C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/shift6_8bit.v Line: 1
+Info (12128): Elaborating entity "shift6_8bit" for hierarchy "pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|multiplier_8bit:8bit_mult|shift6_8bit:inst7"
+Warning (12125): Using design file shift7_8bit.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: shift7_8bit File: C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/shift7_8bit.v Line: 1
+Info (12128): Elaborating entity "shift7_8bit" for hierarchy "pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|multiplier_8bit:8bit_mult|shift7_8bit:inst8"
+Warning (12125): Using design file and16.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: AND16 File: C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/and16.v Line: 1
+Info (12128): Elaborating entity "AND16" for hierarchy "pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|AND16:inst3"
+Warning (12125): Using design file busmux_4.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: busmux_4
+Info (12128): Elaborating entity "busmux_4" for hierarchy "pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|busmux_4:mux4"
+Warning (12125): Using design file shift4.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: shift4 File: C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/shift4.v Line: 1
+Info (12128): Elaborating entity "shift4" for hierarchy "pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|loop_mul:inst19|shift4:inst6"
+Info (12128): Elaborating entity "LPM_FF" for hierarchy "pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|LPM_FF:inst1"
+Info (12130): Elaborated megafunction instantiation "pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|LPM_FF:inst1"
+Info (12133): Instantiated megafunction "pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|LPM_FF:inst1" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTH" = "16"
+Info (12128): Elaborating entity "LPM_FF" for hierarchy "pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|LPM_FF:inst4"
+Info (12130): Elaborated megafunction instantiation "pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|LPM_FF:inst4"
+Info (12133): Instantiated megafunction "pipelined_ALU_regfile:inst8|MAC_loop:inst2|MAD:inst|LPM_FF:inst4" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTH" = "16"
+Info (12128): Elaborating entity "LPM_DFF" for hierarchy "pipelined_ALU_regfile:inst8|LPM_DFF:Load_Status"
+Info (12130): Elaborated megafunction instantiation "pipelined_ALU_regfile:inst8|LPM_DFF:Load_Status"
+Info (12133): Instantiated megafunction "pipelined_ALU_regfile:inst8|LPM_DFF:Load_Status" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTH" = "1"
+Warning (12125): Using design file xsr.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: xsr File: C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/xsr.v Line: 1
+Info (12128): Elaborating entity "xsr" for hierarchy "pipelined_ALU_regfile:inst8|xsr:xsr"
+Warning (12125): Using design file bitwise.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: bitwise File: C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/bitwise.v Line: 1
+Info (12128): Elaborating entity "bitwise" for hierarchy "pipelined_ALU_regfile:inst8|bitwise:bitwise"
+Info (12128): Elaborating entity "LPM_DFF" for hierarchy "pipelined_ALU_regfile:inst8|LPM_DFF:Prev_Reg"
+Info (12130): Elaborated megafunction instantiation "pipelined_ALU_regfile:inst8|LPM_DFF:Prev_Reg"
+Info (12133): Instantiated megafunction "pipelined_ALU_regfile:inst8|LPM_DFF:Prev_Reg" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTH" = "3"
+Info (12128): Elaborating entity "LPM_INV" for hierarchy "pipelined_ALU_regfile:inst8|LPM_INV:invert"
+Info (12130): Elaborated megafunction instantiation "pipelined_ALU_regfile:inst8|LPM_INV:invert"
+Info (12133): Instantiated megafunction "pipelined_ALU_regfile:inst8|LPM_INV:invert" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTH" = "16"
+Warning (12125): Using design file reg_addr.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: reg_addr File: C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/reg_addr.v Line: 1
+Info (12128): Elaborating entity "reg_addr" for hierarchy "reg_addr:reg_addr"
+Info (12128): Elaborating entity "LPM_FF" for hierarchy "LPM_FF:loopff"
+Info (12130): Elaborated megafunction instantiation "LPM_FF:loopff"
+Info (12133): Instantiated megafunction "LPM_FF:loopff" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTH" = "1"
+Warning (12125): Using design file twoportrwram.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: TwoPortRWRAM File: C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/twoportrwram.v Line: 40
+Info (12128): Elaborating entity "TwoPortRWRAM" for hierarchy "TwoPortRWRAM:speedyRAM"
+Info (12128): Elaborating entity "altsyncram" for hierarchy "TwoPortRWRAM:speedyRAM|altsyncram:altsyncram_component" File: C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/twoportrwram.v Line: 98
+Info (12130): Elaborated megafunction instantiation "TwoPortRWRAM:speedyRAM|altsyncram:altsyncram_component" File: C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/twoportrwram.v Line: 98
+Info (12133): Instantiated megafunction "TwoPortRWRAM:speedyRAM|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/twoportrwram.v Line: 98
+    Info (12134): Parameter "address_reg_b" = "CLOCK0"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_input_b" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_b" = "BYPASS"
+    Info (12134): Parameter "indata_reg_b" = "CLOCK0"
+    Info (12134): Parameter "init_file" = "../../../lcg_test.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "4096"
+    Info (12134): Parameter "numwords_b" = "4096"
+    Info (12134): Parameter "operation_mode" = "BIDIR_DUAL_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "outdata_reg_b" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "read_during_write_mode_port_b" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "widthad_a" = "12"
+    Info (12134): Parameter "widthad_b" = "12"
+    Info (12134): Parameter "width_a" = "16"
+    Info (12134): Parameter "width_b" = "16"
+    Info (12134): Parameter "width_byteena_a" = "1"
+    Info (12134): Parameter "width_byteena_b" = "1"
+    Info (12134): Parameter "wrcontrol_wraddress_reg_b" = "CLOCK0"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_ahq2.tdf
+    Info (12023): Found entity 1: altsyncram_ahq2 File: C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/db/altsyncram_ahq2.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_ahq2" for hierarchy "TwoPortRWRAM:speedyRAM|altsyncram:altsyncram_component|altsyncram_ahq2:auto_generated" File: c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12128): Elaborating entity "BUSMUX" for hierarchy "BUSMUX:instrSel_Mux"
+Info (12130): Elaborated megafunction instantiation "BUSMUX:instrSel_Mux"
+Info (12133): Instantiated megafunction "BUSMUX:instrSel_Mux" with the following parameter:
+    Info (12134): Parameter "WIDTH" = "11"
+Info (12128): Elaborating entity "lpm_mux" for hierarchy "BUSMUX:instrSel_Mux|lpm_mux:$00000" File: c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/busmux.tdf Line: 44
+Info (12131): Elaborated megafunction instantiation "BUSMUX:instrSel_Mux|lpm_mux:$00000", which is child of megafunction instantiation "BUSMUX:instrSel_Mux" File: c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/busmux.tdf Line: 44
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_alc.tdf
+    Info (12023): Found entity 1: mux_alc File: C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/db/mux_alc.tdf Line: 23
+Info (12128): Elaborating entity "mux_alc" for hierarchy "BUSMUX:instrSel_Mux|lpm_mux:$00000|mux_alc:auto_generated" File: c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/lpm_mux.tdf Line: 87
+Info (12128): Elaborating entity "LPM_FF" for hierarchy "LPM_FF:PC_2"
+Info (12130): Elaborated megafunction instantiation "LPM_FF:PC_2"
+Info (12133): Instantiated megafunction "LPM_FF:PC_2" with the following parameter:
+    Info (12134): Parameter "LPM_FFTYPE" = "DFF"
+    Info (12134): Parameter "LPM_WIDTH" = "11"
+Info (12128): Elaborating entity "LPM_ADD_SUB" for hierarchy "LPM_ADD_SUB:inst3"
+Info (12130): Elaborated megafunction instantiation "LPM_ADD_SUB:inst3"
+Info (12133): Instantiated megafunction "LPM_ADD_SUB:inst3" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTH" = "11"
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_v0b.tdf
+    Info (12023): Found entity 1: add_sub_v0b File: C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/db/add_sub_v0b.tdf Line: 23
+Info (12128): Elaborating entity "add_sub_v0b" for hierarchy "LPM_ADD_SUB:inst3|add_sub_v0b:auto_generated" File: c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/lpm_add_sub.tdf Line: 119
+Info (12128): Elaborating entity "BUSMUX" for hierarchy "BUSMUX:dataSel_Mux"
+Info (12130): Elaborated megafunction instantiation "BUSMUX:dataSel_Mux"
+Info (12133): Instantiated megafunction "BUSMUX:dataSel_Mux" with the following parameter:
+    Info (12134): Parameter "WIDTH" = "12"
+Info (12128): Elaborating entity "lpm_mux" for hierarchy "BUSMUX:dataSel_Mux|lpm_mux:$00000" File: c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/busmux.tdf Line: 44
+Info (12131): Elaborated megafunction instantiation "BUSMUX:dataSel_Mux|lpm_mux:$00000", which is child of megafunction instantiation "BUSMUX:dataSel_Mux" File: c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/busmux.tdf Line: 44
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_blc.tdf
+    Info (12023): Found entity 1: mux_blc File: C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/db/mux_blc.tdf Line: 23
+Info (12128): Elaborating entity "mux_blc" for hierarchy "BUSMUX:dataSel_Mux|lpm_mux:$00000|mux_blc:auto_generated" File: c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/lpm_mux.tdf Line: 87
+Warning (12125): Using design file buffer.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: buffer File: C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/buffer.v Line: 1
+Info (12128): Elaborating entity "buffer" for hierarchy "buffer:bufStraightThrough"
+Warning (19016): Clock multiplexers are found and protected
+    Warning (19017): Found clock multiplexer busmux:ir_mux|lpm_mux:$00000|mux_flc:auto_generated|l1_w10_n0_mux_dataout~0 File: C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/db/mux_flc.tdf Line: 31
+    Warning (19017): Found clock multiplexer busmux:ir_mux|lpm_mux:$00000|mux_flc:auto_generated|l1_w11_n0_mux_dataout~0 File: C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/db/mux_flc.tdf Line: 32
+    Warning (19017): Found clock multiplexer busmux:ir_mux|lpm_mux:$00000|mux_flc:auto_generated|l1_w12_n0_mux_dataout~0 File: C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/db/mux_flc.tdf Line: 33
+    Warning (19017): Found clock multiplexer busmux:ir_mux|lpm_mux:$00000|mux_flc:auto_generated|l1_w13_n0_mux_dataout~0 File: C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/db/mux_flc.tdf Line: 34
+    Warning (19017): Found clock multiplexer busmux:ir_mux|lpm_mux:$00000|mux_flc:auto_generated|l1_w15_n0_mux_dataout~0 File: C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/db/mux_flc.tdf Line: 36
+    Warning (19017): Found clock multiplexer busmux:ir_mux|lpm_mux:$00000|mux_flc:auto_generated|l1_w14_n0_mux_dataout~0 File: C:/Users/cktwm/Desktop/Project/lma0_submission/lma0/db/mux_flc.tdf Line: 35
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 1073 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 1 input pins
+    Info (21059): Implemented 253 output pins
+    Info (21061): Implemented 803 logic cells
+    Info (21064): Implemented 16 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 43 warnings
+    Info: Peak virtual memory: 4882 megabytes
+    Info: Processing ended: Wed Jun 10 22:37:22 2020
+    Info: Elapsed time: 00:00:16
+    Info: Total CPU time (on all processors): 00:00:27
+
+

@@ -1,0 +1,149 @@
+Restore Archived Project report for lma0_v4
+Wed Jun 10 18:11:12 2020
+Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Restore Archived Project Summary
+  3. Restore Archived Project Messages
+  4. Files Restored
+  5. Files Not Restored
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2019  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------+
+; Restore Archived Project Summary                                        ;
++---------------------------------+---------------------------------------+
+; Restore Archived Project Status ; Successful - Wed Jun 10 18:11:12 2020 ;
+; Revision Name                   ; lma0_v4                               ;
+; Top-level Entity Name           ; lma0_v4_pipelined_totest              ;
+; Family                          ; Cyclone IV E                          ;
++---------------------------------+---------------------------------------+
+
+
++-----------------------------------+
+; Restore Archived Project Messages ;
++-----------------------------------+
+Info: Successfully restored 'C:/Users/cktwm/Desktop/Project/lma0_submission/lma0_v4/lma0_v4_tmp_archive.qar' into the 'C:/Users/cktwm/Desktop/Project/lma0_CPU/lma0_v5' directory
+Info: Generated report 'lma0_v4.restore.rpt'
+
+
++--------------------------------------+
+; Files Restored                       ;
++--------------------------------------+
+; File Name                            ;
++--------------------------------------+
+; qar_info.json                        ;
+; Assembler/benchmark_tests/lcg16.mif  ;
+; lma0_v4/AND16.v                      ;
+; lma0_v4/EQMI.bsf                     ;
+; lma0_v4/EQMI.v                       ;
+; lma0_v4/GP2_en_ctrl.v                ;
+; lma0_v4/MAC_loop.bdf                 ;
+; lma0_v4/MAD.bdf                      ;
+; lma0_v4/MAD.bsf                      ;
+; lma0_v4/SM.bsf                       ;
+; lma0_v4/SM.v                         ;
+; lma0_v4/TwoPortRWRAM.bsf             ;
+; lma0_v4/TwoPortRWRAM.qip             ;
+; lma0_v4/TwoPortRWRAM.v               ;
+; lma0_v4/TwoPortRWRAM_bb.v            ;
+; lma0_v4/Waveform.vwf                 ;
+; lma0_v4/Waveform1.vwf                ;
+; lma0_v4/Waveform2.vwf                ;
+; lma0_v4/adder.v                      ;
+; lma0_v4/adder_correctness.bdf        ;
+; lma0_v4/adder_eval.bdf               ;
+; lma0_v4/adder_for_PC.v               ;
+; lma0_v4/alu_decode.v                 ;
+; lma0_v4/assignment_defaults.qdf      ;
+; lma0_v4/bitwise.bsf                  ;
+; lma0_v4/bitwise.v                    ;
+; lma0_v4/bka_16.v                     ;
+; lma0_v4/bka_16_nocin.v               ;
+; lma0_v4/bka_16_nocincout.v           ;
+; lma0_v4/bka_16_nocout.v              ;
+; lma0_v4/buffer.bsf                   ;
+; lma0_v4/buffer.v                     ;
+; lma0_v4/busmux_4.bdf                 ;
+; lma0_v4/busmux_4.bsf                 ;
+; lma0_v4/cin_determine.v              ;
+; lma0_v4/ctrl_en_counter.v            ;
+; lma0_v4/lma0_v4.qpf                  ;
+; lma0_v4/lma0_v4.qsf                  ;
+; lma0_v4/lma0_v4.sdc                  ;
+; lma0_v4/lma0_v4_pipelined.bdf        ;
+; lma0_v4/lma0_v4_pipelined_totest.bdf ;
+; lma0_v4/loopInstruction.v            ;
+; lma0_v4/loop_mul.bdf                 ;
+; lma0_v4/loop_mul.bsf                 ;
+; lma0_v4/multiplier_8bit.bdf          ;
+; lma0_v4/multiplier_8bit.bsf          ;
+; lma0_v4/pg_blackcell.v               ;
+; lma0_v4/pg_graycell.v                ;
+; lma0_v4/pg_onebit.v                  ;
+; lma0_v4/pipelined_ALU_decoder.bsf    ;
+; lma0_v4/pipelined_ALU_decoder.v      ;
+; lma0_v4/pipelined_ALU_regfile.bdf    ;
+; lma0_v4/pipelined_ALU_regfile.bsf    ;
+; lma0_v4/pipelined_decoder.bsf        ;
+; lma0_v4/pipelined_decoder.v          ;
+; lma0_v4/reg_addr.v                   ;
+; lma0_v4/regfile_8_twoport.bsf        ;
+; lma0_v4/regfile_8_twoport_3.bdf      ;
+; lma0_v4/shift.bsf                    ;
+; lma0_v4/shift.v                      ;
+; lma0_v4/shift0_8bit.bsf              ;
+; lma0_v4/shift0_8bit.v                ;
+; lma0_v4/shift1_8bit.bsf              ;
+; lma0_v4/shift1_8bit.v                ;
+; lma0_v4/shift2_8bit.bsf              ;
+; lma0_v4/shift2_8bit.v                ;
+; lma0_v4/shift3_8bit.bsf              ;
+; lma0_v4/shift3_8bit.v                ;
+; lma0_v4/shift4.bsf                   ;
+; lma0_v4/shift4.v                     ;
+; lma0_v4/shift4_8bit.bsf              ;
+; lma0_v4/shift4_8bit.v                ;
+; lma0_v4/shift5_8bit.bsf              ;
+; lma0_v4/shift5_8bit.v                ;
+; lma0_v4/shift6_8bit.bsf              ;
+; lma0_v4/shift6_8bit.v                ;
+; lma0_v4/shift7_8bit.bsf              ;
+; lma0_v4/shift7_8bit.v                ;
+; lma0_v4/test_bka.v                   ;
+; lma0_v4/xsr.bsf                      ;
+; lma0_v4/xsr.v                        ;
++--------------------------------------+
+
+
++--------------------+
+; Files Not Restored ;
++--------------------+
+; File Name          ;
++--------------------+
+
+
