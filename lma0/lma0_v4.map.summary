@@ -1,17 +1,14 @@
-Analysis & Synthesis Status : Successful - Wed Jun 10 22:37:22 2020
+Analysis & Synthesis Status : Successful - Sat Jun 13 21:17:16 2020
 Quartus Prime Version : 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 Revision Name : lma0_v4
 Top-level Entity Name : lma0
-Family : Cyclone V
-Logic utilization (in ALMs) : N/A
+Family : Cyclone IV E
+Total logic elements : 983
+    Total combinational functions : 951
+    Dedicated logic registers : 182
 Total registers : 182
 Total pins : 254
 Total virtual pins : 0
-Total block memory bits : 65,536
-Total DSP Blocks : 0
-Total HSSI RX PCSs : 0
-Total HSSI PMA RX Deserializers : 0
-Total HSSI TX PCSs : 0
-Total HSSI PMA TX Serializers : 0
+Total memory bits : 65,536
+Embedded Multiplier 9-bit elements : 0
 Total PLLs : 0
-Total DLLs : 0
