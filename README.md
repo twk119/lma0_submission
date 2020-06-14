@@ -14,5 +14,6 @@ Submission for ELEC40006 Design Project Option 2: CPU
 ## Directions
 Open up the Quartus Project, `lma0` to view.
 The Assembler assembles MIF files.
+MIF files used for the benchmark tests of the respective tasks can be found in the Assembler/benchmark_tests folder.
 
 Happy browsing!
